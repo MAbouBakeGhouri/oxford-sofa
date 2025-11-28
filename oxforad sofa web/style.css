@@ -1,0 +1,895 @@
+/* _________________________________________________ */
+/* 1. Global Reset and Base Styles */
+/* _________________________________________________ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+  background-color: #e6e6e6;
+}
+
+a {
+  text-decoration: none;
+  transition: opacity 0.3s, color 0.3s;
+}
+
+/* _________________________________________________ */
+/* 2. Header and Sticky Navigation (section-1) */
+/* _________________________________________________ */
+header {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  /* Animated background ke liye */
+}
+
+header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.section-1 {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  /* High z-index for sticky header */
+  height: 90px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 10px;
+  transition: background-color 400ms;
+}
+
+/* Sticky/Scrolled State */
+.section-1.active,
+.section-1:hover {
+  background-color: #e6e6e6 !important;
+}
+
+.section-1.active a,
+.section-1:hover a {
+  color: #000000 !important;
+}
+
+.section-1.active img,
+.section-1:hover img {
+  filter: invert(0) !important;
+}
+
+/* Logo */
+.nav-container-1 img {
+  max-width: 120px;
+  width: 100%;
+  filter: invert(1);
+  /* Default white */
+}
+
+/* Nav links */
+.nav-ul-1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  list-style: none;
+}
+
+.nav-container-2 .menu ul li a {
+  font-size: 12px;
+  font-weight: 600;
+  color: #ffffff;
+  /* Default white */
+  letter-spacing: 1px;
+}
+
+/* Right Menu */
+.right-menu ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  list-style: none;
+}
+
+.right-menu ul li a {
+  color: #ffffff;
+  /* Default white */
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.right-menu ul li a img {
+  max-width: 20px;
+  width: 100%;
+  filter: invert(1);
+  /* Default white */
+}
+
+/* Burger Menu Icon (Desktop Hidden) */
+.burger-icon {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 25px;
+  height: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 100;
+}
+
+.burger-icon .line {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: #ffffff;
+  /* Default line color */
+  border-radius: 10px;
+  transition: all 0.3s linear;
+  transform-origin: 1px;
+}
+
+
+/* _________________________________________________ */
+/* 3. Dropdown Menu (Mega Menu) */
+/* _________________________________________________ */
+
+
+.dropdown-menu {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+  /* full width */
+  background: #e6e6e6;
+  display: flex;
+  justify-content: space-around;
+  padding: 40px 100px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.1s ease;
+  border-top: 1px solid #ddd;
+  z-index: 99;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Dropdown Sections */
+.dropdown-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.dropdown-section h4 {
+  font-size: 14px;
+  margin-bottom: 15px;
+  font-weight: bold;
+  color: #333;
+  letter-spacing: 1px;
+}
+
+.dropdown-section ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-section ul li {
+  margin-bottom: 8px;
+}
+
+.dropdown-section ul li a {
+  color: #111;
+  font-size: 14px;
+  text-align: left;
+  font-weight: 300;
+}
+
+.dropdown-section ul li a:hover {
+  opacity: 0.5;
+}
+
+
+/* _________________________________________________ */
+/* 4. Main Content (Sections 1, 2, 3) */
+/* _________________________________________________ */
+
+/* Section 1 - Product Showcase */
+.main-section-1 {
+  position: relative;
+  /* Arrows ke liye */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 500px;
+  padding: 0px 40px;
+  /* Side padding for content */
+  margin: 40px 0;
+}
+
+.main-container-1 {
+  max-width: 1070px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+}
+
+.main-container-1 h2 {
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.main-container-1 p {
+  font-size: 14.4px;
+  font-weight: 300;
+  text-align: center;
+}
+
+/* Product Carousel Wrapper */
+.main-container-2 {
+  display: flex;
+  justify-content: center;
+  /* Items left se start honge */
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+  flex-wrap: nowrap;
+  /* Zaroori: Horizontal scroll ke liye */
+  gap: 30px;
+  margin-top: 40px;
+
+  /* Carousel Setup */
+  overflow-x: scroll;
+  overflow-y: hidden;
+  padding: 0 20px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+
+  /* Scrollbar chhupana */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.main-container-2::-webkit-scrollbar {
+  display: none;
+}
+
+/* Individual Product Item */
+.main-container-2 a {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  color: #545454;
+  font-weight: 700;
+  letter-spacing: 1px;
+  align-items: center;
+  padding-top: 30px;
+
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  /* Scroll har item par rukega */
+  width: 220px;
+}
+
+.main-container-2 img {
+  max-width: 220px;
+  width: 100%;
+  height: 258.5px;
+  object-fit: cover;
+  background-color: #cfcaca;
+  transition: 0.5s;
+}
+
+.main-container-2 img:hover {
+  opacity: 0.5;
+}
+
+/* Carousel Navigation Arrows */
+.product-nav-arrow {
+  display: none;
+  /* By default hidden, only for desktop JS use */
+  position: absolute;
+  /* top: 50%; <-- Yeh main-container-2 ke center mein aana chahiye */
+  top: 60%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 18px;
+  z-index: 10;
+  transition: background 0.3s;
+  border-radius: 50%;
+}
+
+.product-nav-arrow:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.prev-item {
+  left: 20px;
+}
+
+.next-item {
+  right: 20px;
+}
+
+
+/* Section 2 - Full-Width Slider */
+.modern-full-width-slider {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  overflow: hidden;
+  margin: 40px 0;
+}
+
+.slider-wrapper {
+  display: flex;
+  height: 100%;
+  width: 400%;
+  transition: transform 0.7s ease-in-out;
+}
+
+.slider-item {
+  width: 25%;
+  flex-shrink: 0;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.slider-item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.caption {
+  z-index: 10;
+  color: #fff;
+  text-align: center;
+  max-width: 80%;
+}
+
+.caption h2 {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.caption p {
+  font-size: 18px;
+  font-weight: 300;
+  margin-bottom: 30px;
+}
+
+.slider-btn-a {
+  display: inline-block;
+  padding: 12px 30px;
+  color: #fff;
+  background-color: transparent;
+  border: 2px solid #fff;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.slider-btn-a:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+/* Navigation Arrows (Full Slider) */
+.nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  padding: 15px 18px;
+  cursor: pointer;
+  font-size: 20px;
+  z-index: 20;
+  border-radius: 50%;
+}
+
+.nav-arrow:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.prev-slide {
+  left: 20px;
+}
+
+.next-slide {
+  right: 20px;
+}
+
+/* Navigation Dots (Full Slider) */
+.nav-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 20;
+}
+
+.dot {
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.dot.active {
+  background-color: #fff;
+  transform: scale(1.2);
+}
+
+
+/* Section 3 - Archives and Bespoke */
+.main-section-3 {
+  padding-bottom: 100px;
+  background-color: #796048;
+}
+
+.main-sec-3-sec-2 {
+  display: flex;
+  justify-content: center;
+  padding: 80px 80px 0px 80px;
+  gap: 60px;
+}
+
+.main-s3-s2-s1 {
+  max-width: 45%;
+  width: 100%;
+}
+
+.main-s3-s2-s1 img {
+  max-width: 505px;
+  width: 100%;
+  height: auto;
+  /* Zaroori */
+}
+
+.text-box {
+  max-width: 505px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.text-box h1 {
+  color: #ffffff;
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  margin-top: 30px;
+}
+
+.text-box p {
+  color: #f2f2f2;
+  line-height: 1.7;
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 0.03em;
+}
+
+.text-box a {
+  width: 200px;
+  padding: 15px 0;
+  border: 1px solid #fff;
+  text-align: center;
+  color: #ffffff;
+  letter-spacing: 1px;
+  font-size: 13px;
+}
+
+.text-box a:hover {
+  opacity: 0.5;
+}
+
+/* _________________________________________________ */
+/* 5. Footer */
+/* _________________________________________________ */
+footer {
+  background-color: #131313;
+}
+
+.foot-sec-1 {
+  display: flex;
+  justify-content: space-between;
+  padding: 60px 120px 30px 120px;
+  flex-wrap: wrap;
+}
+
+.foot-logo img {
+  max-width: 100px;
+  width: 100%;
+  filter: invert(1);
+}
+
+.foot-con-2,
+.foot-con-3,
+.foot-con-5 {
+  display: flex;
+  flex-direction: column;
+}
+
+.foot-con-2 h3,
+.foot-con-3 h3,
+.foot-con-5 h3 {
+  font-size: 13px;
+  color: #e6e6e6;
+  font-weight: 500;
+  padding-bottom: 16px;
+  letter-spacing: 0.06em;
+      width: fit-content;
+    margin-bottom: 40px;
+    position:relative ;
+}
+
+.foot-con-2 a,
+.foot-con-3 a,
+.foot-con-5 a {
+  font-size: 11px;
+  color: #999999;
+  margin-bottom: 12px;
+}
+
+.foot-con-2 a:hover,
+.foot-con-3 a:hover,
+.foot-con-5 a:hover {
+  color: #ffffff;
+}
+
+.social-media {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.social-media img {
+  /* Filters ko simplified kar diya */
+  filter: invert(57%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(60%) contrast(90%);
+}
+.underline{
+    width: 100%;
+    height: 5px;
+    background: #767676;
+    border-radius: 3px;
+    position: absolute;
+    top: 25px;
+    left: 0;
+    overflow: hidden;
+}
+.underline span{
+    width: 15px;
+    height: 100%;
+    background: #fff;
+    border-radius: 3px;
+    position: absolute;
+    top: 0;
+    left: 10px;
+    animation: moving 2s linear infinite;
+}
+@keyframes moving{
+    0%{
+        left: -20px;
+    }
+    100%{
+        left: 100%;
+    }
+}
+
+.foot-sec-2 {
+  padding: 0px 90px 30px 90px;
+  padding-bottom: 0;
+  border-top: 1px solid #333;
+  /* Visual separation ke liye */
+}
+
+.foot-sec-2-con {
+  display: flex;
+  flex-direction: column;
+  font-size: 10px;
+  color: #545454;
+  gap: 6px;
+  padding-top: 20px;
+}
+
+.foot-sec-2-con-p3 {
+  margin-top: 10px;
+}
+
+
+/* _________________________________________________ */
+/* 6. Media Queries (Responsive Design) */
+/* _________________________________________________ */
+
+/* 🖥️ Desktop Carousel Arrows (769px and up) */
+@media (max-width: 769px) {
+  .product-nav-arrow {
+    display: block;
+    /* Arrows sirf desktop par JS se control honge */
+  }
+
+  .main-container-2 {
+    justify-content: flex-start;
+  }
+}
+
+/* 📱 Tablet/Mobile (Max Width 1024px) */
+@media (max-width: 1024px) {
+
+  /* Section 1 - Adjustments */
+  .main-section-1 {
+    padding: 0 10px;
+  }
+
+  .main-container-2 {
+    gap: 20px;
+    padding: 0 15px;
+  }
+
+  .main-container-2 a {
+    width: 200px;
+  }
+
+  .main-container-2 img {
+    height: 200px;
+  }
+
+  /* Section 3 - Archives/Bespoke */
+  .main-sec-3-sec-2 {
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 20px 0px 20px;
+    gap: 40px;
+  }
+
+  .main-s3-s2-s1 {
+    max-width: 90%;
+  }
+
+  .text-box {
+    max-width: 100%;
+  }
+
+  /* Dropdown menu adjustment */
+  .dropdown-menu {
+    padding: 40px 20px;
+    gap: 30px;
+  }
+}
+
+
+/* 📱 Mobile Specific (Max Width 768px) */
+@media (max-width: 768px) {
+
+  /* Header & Navigation */
+  .section-1 {
+    justify-content: space-between;
+    padding: 0 20px;
+  }
+
+  /* Desktop menu hidden */
+  .nav-container-2 {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 75%;
+    /* Thoda aur jagah */
+    background-color: #e6e6e6;
+    padding-top: 90px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 90;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .nav-container-2.active {
+    transform: translateX(0);
+  }
+
+  /* Burger Icon */
+  .burger-icon {
+    display: flex;
+  }
+
+  .burger-icon .line {
+    background: #000000 !important;
+    /* Active state ya light background ke liye */
+  }
+
+  .burger-icon.active .line {
+    background: #000000;
+  }
+
+  /* Right Menu aur Burger Icon ko ek sath */
+  .nav-3-burger {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  /* Mobile Nav Links */
+  .nav-ul-1 {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding-left: 20px;
+    width: 100%;
+  }
+
+  .nav-container-2 .menu ul li a {
+    color: #000000;
+    padding: 15px 0;
+    display: block;
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+  }
+
+  /* Dropdown in Mobile */
+  .dropdown-menu {
+    position: static;
+    flex-direction: column;
+    display: none;
+    width: 100%;
+    padding: 10px 20px;
+    background: #f0f0f0;
+    border: none;
+    box-shadow: none;
+    overflow: hidden;
+  }
+
+  .dropdown-menu.active {
+    display: flex;
+  }
+
+  .dropdown-section {
+    width: 100%;
+    text-align: left;
+  }
+
+  /* Section 1 - Product Carousel */
+  .main-container-2 a {
+    width: 180px;
+  }
+
+  .main-container-2 img {
+    max-width: 180px;
+    height: 180px;
+  }
+
+  /* Full-Width Slider */
+  .modern-full-width-slider {
+    height: 50vh;
+  }
+
+  .caption h2 {
+    font-size: 28px;
+  }
+
+  .caption p {
+    font-size: 14px;
+  }
+
+  .nav-arrow {
+    padding: 10px 12px;
+    font-size: 16px;
+  }
+
+  /* Footer */
+  .foot-sec-1 {
+    gap: 20px;
+    padding: 40px 20px;
+    justify-content: space-between;
+  }
+
+  .foot-sec-2 {
+    padding: 0 20px 30px 20px;
+  }
+}
+
+/* 📱 Very Small Mobile (Max Width 425px) */
+@media (max-width: 425px) {
+
+  .nav-container-1 img {
+    max-width: 100px;
+  }
+
+  .main-container-1 h2 {
+    font-size: 20px;
+  }
+
+  .main-container-1 p {
+    font-size: 14px;
+  }
+
+  .main-container-2 a {
+    width: 150px;
+  }
+
+  .main-container-2 img {
+    max-width: 150px;
+    height: 150px;
+  }
+
+  .main-sec-3-sec-2 {
+    padding: 40px 15px 0 15px;
+  }
+
+  .main-s3-s2-s1 {
+    max-width: 100%;
+  }
+
+  .text-box h1 {
+    font-size: 22px;
+  }
+
+  .text-box a {
+    width: 160px;
+    padding: 10px 0;
+  }
+
+  .foot-sec-1 {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .foot-con-2,
+  .foot-con-3,
+  .foot-con-5 {
+    margin-top: 15px;
+  }
+       @media (max-width: 768px) {
+          .mapouter {
+            padding-bottom: 75%;
+            /* thodi height mobile ke liye bari */
+          }
+        }
+
+        @media (max-width: 480px) {
+          .mapouter {
+            padding-bottom: 90%;
+            /* chhote phones ke liye aur bari height */
+          }
+        }
+}

@@ -1,0 +1,859 @@
+/* ----- RESET & BASE ----- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Manrope", sans-serif;
+    background-color: #e6e6e6;
+    overflow-x: hidden;
+}
+
+.section-1 {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    height: 90px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 10px;
+    transition: 400ms;
+    background-color: #e6e6e6;
+}
+
+.section-1.active {
+    background-color: #e6e6e6 !important;
+}
+
+.section-1.active a {
+    color: #000000 !important;
+}
+
+.section-1.active img {
+    filter: invert(0) !important;
+}
+
+.section-1:hover {
+    background-color: #ffffff;
+}
+
+.section-1:hover a {
+    color: #000000 !important;
+}
+
+.section-1:hover img {
+    filter: invert(0) !important;
+}
+
+/* logo */
+.nav-container-1 img {
+    max-width: 120px;
+    width: 100%;
+    filter: invert(0);
+}
+
+/* center menu */
+.nav-ul-1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    list-style: none;
+}
+
+.nav-container-2 .menu ul li a {
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    color: #111;
+    letter-spacing: 1px;
+}
+
+/* right menu */
+.right-menu ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    list-style: none;
+}
+
+.right-menu ul li a {
+    text-decoration: none;
+    color: #111;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.right-menu ul li a img {
+    max-width: 20px;
+    width: 100%;
+    filter: invert(0);
+}
+
+/* drop down menu css */
+.dropdown-menu {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    /* full width */
+    background: #ffffff;
+    display: flex;
+    justify-content: space-around;
+    padding: 40px 100px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.1s ease;
+    border-top: 1px solid #ddd;
+    z-index: 99;
+}
+
+/* show dropdown on hover */
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* section styling */
+.dropdown-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.dropdown-section h4 {
+    font-size: 14px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: #333;
+    letter-spacing: 1px;
+}
+
+.dropdown-section ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.dropdown-section ul li {
+    margin-bottom: 8px;
+}
+
+.dropdown-section ul li a {
+    text-decoration: none;
+    color: #111;
+    font-size: 14px;
+    text-align: left;
+    font-weight: 300;
+}
+
+.dropdown-section ul li a:hover {
+    opacity: 0.25;
+}
+
+
+
+
+
+/* ----- CONTAINER ----- */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* ----- PRODUCT PAGE ----- */
+.product-page {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    margin-top: 40px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* ----- GALLERY ----- */
+.gallery {
+    flex: 1;
+    min-width: 300px;
+}
+
+.gallery-main {
+    width: 100%;
+    height: 400px;
+    object-fit: contain;
+    border-radius: 12px;
+    border: 1px solid #eee;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.gallery-main:hover {
+    transform: scale(1.02);
+}
+
+.gallery-thumbs {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.gallery-thumbs img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.gallery-thumbs img:hover,
+.gallery-thumbs img.active {
+    border-color: #111;
+    transform: scale(1.05);
+}
+
+/* ----- PRODUCT INFO ----- */
+.product-info {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 15px;
+}
+
+.product-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #222;
+}
+
+.product-price {
+    font-size: 26px;
+    color: #111;
+    font-weight: 600;
+}
+
+.product-desc {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.product-specs {
+    margin-top: 15px;
+}
+
+.product-specs h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.product-specs p {
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+/* ----- ADD TO CART BUTTON ----- */
+.add-to-cart {
+    padding: 14px 30px;
+    background: #111;
+    color: #fff;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 15px;
+    width: fit-content;
+}
+
+.add-to-cart:hover {
+    background: #333;
+    transform: translateY(-2px);
+}
+
+/* ----- INFO SECTIONS (Designer, Shipping etc) ----- */
+.info-section {
+    margin-top: 40px;
+    padding: 25px;
+    background: #f8f4ef;
+    border-radius: 10px;
+}
+
+.info-section h4 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.info-section p {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* ----- RESPONSIVE ----- */
+@media (max-width:768px) {
+    .product-page {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .gallery-main {
+        height: 300px;
+    }
+
+    .gallery-thumbs img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .product-title {
+        font-size: 26px;
+    }
+
+    .product-price {
+        font-size: 22px;
+    }
+
+    .add-to-cart {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* main image wrapper for nice border & shadow */
+.main-image-wrapper {
+    border: 1px solid #eee;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* product specs card style */
+.product-specs.card {
+    background: #f8f4ef;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* gallery thumbs spacing */
+.gallery-thumbs {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* responsive tweaks */
+@media(max-width:768px) {
+    .gallery-main {
+        height: 300px;
+    }
+
+    .gallery-thumbs img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .product-specs.card {
+        padding: 15px;
+    }
+}
+
+.related-products {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.related-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    flex: 1 1 200px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    text-align: center;
+}
+
+.related-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.related-card h4 {
+    font-size: 14px;
+    margin: 10px 0 5px 0;
+    color: #111;
+}
+
+.related-card p {
+    font-size: 12px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.related-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+/* footer */
+footer {
+  background-color: #131313;
+}
+
+.foot-sec-1 {
+  display: flex;
+  justify-content: space-between;
+  padding: 60px 120px 30px 120px;
+  flex-wrap: wrap;
+}
+
+.foot-logo img {
+  max-width: 100px;
+  width: 100%;
+  filter: invert(1);
+}
+
+.foot-con-2,
+.foot-con-3,
+.foot-con-5 {
+  display: flex;
+  flex-direction: column;
+}
+
+.foot-con-2 h3,
+.foot-con-3 h3,
+.foot-con-5 h3 {
+  font-size: 13px;
+  color: #e6e6e6;
+  font-weight: 500;
+  padding-bottom: 16px;
+  letter-spacing: 0.06em;
+      width: fit-content;
+    margin-bottom: 40px;
+    position:relative ;
+}
+
+.foot-con-2 a,
+.foot-con-3 a,
+.foot-con-5 a {
+  font-size: 11px;
+  color: #999999;
+  margin-bottom: 12px;
+}
+
+.foot-con-2 a:hover,
+.foot-con-3 a:hover,
+.foot-con-5 a:hover {
+  color: #ffffff;
+}
+
+.social-media {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.social-media img {
+  /* Filters ko simplified kar diya */
+  filter: invert(57%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(60%) contrast(90%);
+}
+.underline{
+    width: 100%;
+    height: 5px;
+    background: #767676;
+    border-radius: 3px;
+    position: absolute;
+    top: 25px;
+    left: 0;
+    overflow: hidden;
+}
+.underline span{
+    width: 15px;
+    height: 100%;
+    background: #fff;
+    border-radius: 3px;
+    position: absolute;
+    top: 0;
+    left: 10px;
+    animation: moving 2s linear infinite;
+}
+@keyframes moving{
+    0%{
+        left: -20px;
+    }
+    100%{
+        left: 100%;
+    }
+}
+
+.foot-sec-2 {
+  padding: 0px 90px 30px 90px;
+  padding-bottom: 0;
+  border-top: 1px solid #333;
+  /* Visual separation ke liye */
+}
+
+.foot-sec-2-con {
+  display: flex;
+  flex-direction: column;
+  font-size: 10px;
+  color: #545454;
+  gap: 6px;
+  padding-top: 20px;
+}
+
+.foot-sec-2-con-p3 {
+  margin-top: 10px;
+}
+
+@media screen and (min-width: 320px) and (max-width: 600px) {
+
+
+    .nav-ul-1 {
+        gap: 10px;
+    }
+
+    .right-menu ul li a img {
+        max-width: 12px;
+    }
+
+    .nav-container-1 img {
+        gap: 5px;
+    }
+
+    .right-menu ul {
+        gap: 5px;
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 425px) {
+    .right-menu ul li a img {
+        max-width: 12px;
+    }
+
+    .nav-container-1 img {
+        max-width: 80px;
+    }
+
+    .right-menu ul {
+        gap: 5px;
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 375px) {
+    .right-menu ul li a img {
+        max-width: 12px;
+    }
+
+    .nav-container-1 img {
+        max-width: 50px;
+    }
+
+    .right-menu ul {
+        gap: 5px;
+    }
+
+}
+
+@media screen and (min-width: 320px) and (max-width: 320px) {
+    .right-menu ul li a img {
+        max-width: 12px;
+    }
+
+    .nav-container-1 img {
+        max-width: 50px;
+    }
+
+    .right-menu ul {
+        gap: 5px;
+    }
+
+
+}
+
+@media screen and (min-width: 320px) and (max-width: 320px) {
+
+    .dropdown-menu {
+        gap: 10px;
+        justify-content: center;
+    }
+
+}
+
+@media screen and (min-width: 320px) and (max-width: 768px) {
+
+    .dropdown-menu {
+        gap: 30px;
+        justify-content: center;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- BURGER MENU STYLING --- */
+/* Burger Icon ki basic styling */
+.burger-icon {
+    display: none;
+    /* Default mein chhupa rahega */
+    flex-direction: column;
+    justify-content: space-around;
+    width: 25px;
+    height: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 100;
+    /* Sabse upar */
+}
+
+.burger-icon .line {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #000;
+    /* Icon ka default color */
+    border-radius: 10px;
+    transition: all 0.3s linear;
+    transform-origin: 1px;
+}
+
+/* Burger Icon active hone par X mein badalna */
+.burger-icon.active .line:nth-child(1) {
+    transform: rotate(45deg);
+    background: #000000;
+    /* Active hone par color */
+}
+
+.burger-icon.active .line:nth-child(2) {
+    opacity: 0;
+}
+
+.burger-icon.active .line:nth-child(3) {
+    transform: rotate(-45deg);
+    background: #000000;
+    /* Active hone par color */
+}
+
+
+/* --- MOBILE SPECIFIC STYLES (Jab screen choti ho) --- */
+@media (max-width: 768px) {
+
+    .burger-icon .line {
+        background: #000000 !important;
+    }
+
+    /* Burger Icon ko chote screen par dikhao */
+    .burger-icon {
+        display: flex;
+    }
+
+    /* nav-container-2 (Main Menu) ko mobile ke liye setup karna */
+    .nav-container-2 {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 70%;
+        /* Aap apne hisab se width change kar sakte hain */
+        background-color: #e6e6e6;
+        /* Aapki demand ke mutabiq background color */
+        padding-top: 90px;
+        transform: translateX(100%);
+        /* Right side se screen se bahar */
+        transition: transform 0.3s ease-in-out;
+        z-index: 90;
+        /* Icon se neeche */
+        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+        /* 👇 YEH DO LINES ZAROORI HAIN 👇 */
+        overflow-y: auto;
+        overflow-x: hidden;
+        /* 👆 YEH DO LINES ZAROORI HAIN 👆 */
+    }
+
+    /* Jab menu active ho to slide-in karo */
+    .nav-container-2.active {
+        transform: translateX(0);
+        /* Screen par wapas laao */
+    }
+
+    /* Menu items ko vertical (khada) dikhana */
+    .nav-ul-1 {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        padding-left: 20px;
+    }
+
+    /* Menu links ka color aur style */
+    .nav-container-2 .menu ul li a {
+        color: #000000;
+        /* Aapki demand ke mutabiq item color */
+        padding: 15px 0;
+        display: block;
+        width: 100%;
+        border-bottom: 1px solid #ddd;
+    }
+
+    /* Dropdown menu ko mobile view ke liye adjust karna */
+    .dropdown-menu {
+        position: static;
+        /* Fixed/Absolute se hata kar static kar denge */
+        width: 100%;
+        padding: 10px 20px;
+        background: #f0f0f0;
+        /* Thoda alag shade de sakte hain */
+        box-shadow: none;
+        border-top: none;
+
+        /* Dropdown ko initially chupa do aur JavaScript se dikhao */
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-in-out;
+    }
+
+    .dropdown-menu.active {
+        max-height: 1200px;
+        /* Ya isse zyada, taake saara content zaroor dikhe */
+        /* Pichle 500px ko 1200px se badal dein */
+
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    /* Zaroori: Mobile mein display flex hata kar block/column kar dein */
+    .dropdown-menu {
+        flex-direction: column;
+        /* Confirm karein yeh set ho */
+        align-items: center;
+        /* Agar zaroori ho */
+        display: flex;
+        /* Active/inactive state se pehle yahan display zaroori hai */
+    }
+
+    .dropdown-section {
+        width: 100%;
+        /* Sections ko poori jagah mil jaye */
+        text-align: center;
+        /* Content ko center karne ke liye */
+    }
+
+
+}
+.foot-sec-1 {
+    gap: 20px;
+    padding: 40px 20px;
+    justify-content: space-between;
+  }
+
+  .foot-sec-2 {
+    padding: 0 20px 30px 20px;
+  }
+}
+
+/* 📱 Very Small Mobile (Max Width 425px) */
+@media (max-width: 425px) {
+
+  .nav-container-1 img {
+    max-width: 100px;
+  }
+
+  .main-container-1 h2 {
+    font-size: 20px;
+  }
+
+  .main-container-1 p {
+    font-size: 14px;
+  }
+
+  .main-container-2 a {
+    width: 150px;
+  }
+
+  .main-container-2 img {
+    max-width: 150px;
+    height: 150px;
+  }
+
+  .main-sec-3-sec-2 {
+    padding: 40px 15px 0 15px;
+  }
+
+  .main-s3-s2-s1 {
+    max-width: 100%;
+  }
+
+  .text-box h1 {
+    font-size: 22px;
+  }
+
+  .text-box a {
+    width: 160px;
+    padding: 10px 0;
+  }
+
+  .foot-sec-1 {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .foot-con-2,
+  .foot-con-3,
+  .foot-con-5 {
+    margin-top: 15px;
+  }
+       @media (max-width: 768px) {
+          .mapouter {
+            padding-bottom: 75%;
+            /* thodi height mobile ke liye bari */
+          }
+        }
+
+        @media (max-width: 480px) {
+          .mapouter {
+            padding-bottom: 90%;
+            /* chhote phones ke liye aur bari height */
+          }
+        }
+}

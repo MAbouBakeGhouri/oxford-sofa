@@ -1,0 +1,1531 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oxford vs Rove Lab - Premium Sofa Comparison</title>
+    <link rel="stylesheet" href="comparison-style-updated.css">
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #2c3e50;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(189, 180, 169, 0.781) 100%);
+        min-height: 100vh;
+    }
+
+    /* Navigation */
+    .navbar {
+        background: transparent;
+        padding: 15px;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+
+    .nav-container {
+        max-width: 1200px;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        flex-basis: 15%;
+    }
+
+    .logo img {
+        width: 100px;
+        cursor: pointer;
+        filter: brightness(1.2) contrast(1.1);
+        transition: transform 0.3s ease;
+        filter: invert(90);
+
+    }
+
+    .logo img:hover {
+        transform: scale(1.15);
+    }
+
+    .menu-button {
+        position: relative;
+    }
+
+    .menu-toggle {
+        background-color: rgba(255, 255, 255, 0.95);
+        color: #1a472a;
+        border: 2px solid #ffffff;
+        padding: 12px 24px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        font-weight: bold;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .menu-toggle:hover {
+        background-color: #ffffff;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .menu-dropdown {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: #ffffff;
+        list-style: none;
+        border-radius: 8px;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+        margin-top: 12px;
+        z-index: 1000;
+        min-width: 300px;
+        overflow: hidden;
+    }
+
+    .menu-dropdown.active {
+        display: block;
+        animation: slideDown 0.3s ease;
+    }
+
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .menu-dropdown li {
+        padding: 0;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    .menu-dropdown li:last-child {
+        border-bottom: none;
+    }
+
+    .menu-dropdown li a {
+        display: block;
+        padding: 14px 20px;
+        color: #2c3e50;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-weight: 500;
+    }
+
+    .menu-dropdown li a:hover {
+        background: linear-gradient(90deg, #f0f4f8 0%, #e8f1f7 100%);
+        color: #1a472a;
+        padding-left: 25px;
+    }
+
+    /* Hero Section */
+    .hero {
+        background: linear-gradient(135deg, rgb(56, 16, 3) 0%, rgb(125, 40, 11) 50%, rgba(196, 178, 172, 0.925) 100%);
+        color: whitesmoke;
+
+        text-align: center;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        background-image: url(camparison.png);
+        background-size: cover;
+        background-position: cover;
+    }
+
+    .hero-content h1 {
+        font-size: 3.5em;
+        margin-bottom: 20px;
+        text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
+        font-weight: 300;
+        letter-spacing: 2px;
+    }
+
+    .hero-content p {
+        font-size: 1.3em;
+        max-width: 900px;
+        margin: 0 auto;
+        line-height: 1.8;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Main Container */
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px 20px;
+    }
+
+    /* Sections */
+    .section {
+        background-color: whitesmoke;
+        padding: 50px;
+        margin-bottom: 40px;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        border-left: 5px solid rgb(56, 16, 3);
+        transition: all 0.3s ease;
+    }
+
+    .section:hover {
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .section h2 {
+        color: rgb(56, 16, 3);
+        font-size: 2.5em;
+        margin-bottom: 30px;
+        border-bottom: 3px solid rgb(56, 16, 3);
+        padding-bottom: 15px;
+        letter-spacing: 1px;
+    }
+
+    .section h3 {
+        color: rgb(56, 16, 3);
+        font-size: 1.6em;
+        margin: 35px 0 20px 0;
+    }
+
+    .section h4 {
+        color: rgb(56, 16, 3);
+        font-size: 1.2em;
+        margin: 20px 0 10px 0;
+    }
+
+    /* Table of Contents */
+    .toc-section {
+        background: linear-gradient(135deg, #f5f7fa 0%, #e8f1f7 100%);
+        border-left-color: rgb(56, 16, 3);
+    }
+
+    .toc-section h2 {
+        border-bottom-color: rgb(56, 16, 3);
+    }
+
+    .toc-list {
+        list-style: none;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+    }
+
+    .toc-list li a {
+        color: rgb(56, 16, 3);
+        text-decoration: none;
+        padding: 15px 20px;
+        display: block;
+        border-radius: 8px;
+        background: white;
+        border-left: 4px solidrgb(56, 16, 3);
+        transition: all 0.3s ease;
+        font-weight: 500;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .toc-list li a:hover {
+        background: linear-gradient(135deg, rgb(56, 16, 3)0%, rgb(12, 5, 2) 100%);
+        color: #ffffff;
+        transform: translateX(10px);
+        box-shadow: 0 6px 15px rgba(26, 71, 42, 0.3);
+    }
+
+    /* Comparison Table */
+    .comparison-table {
+        overflow-x: auto;
+        margin-bottom: 30px;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        background: white;
+    }
+
+    table thead {
+        background: linear-gradient(135deg, rgb(0, 0, 0) 0%, rgb(14, 5, 2) 100%);
+        color: white;
+    }
+
+    table th {
+        padding: 18px;
+        text-align: center;
+        font-weight: bold;
+        font-size: 1.1em;
+        letter-spacing: 0.5px;
+    }
+
+    table td {
+        padding: 16px;
+        text-align: left;
+        border-bottom: 2px solid #f0f0f0;
+    }
+
+    table td:nth-child(n+2) {
+        text-align: center;
+        font-weight: 500;
+    }
+
+
+
+    table tr:nth-child(even) {
+        background-color: #f5f7fa;
+    }
+
+    .check {
+        color: rgb(22, 7, 2);
+        font-weight: bold;
+    }
+
+    .cross {
+        color: rgb(24, 8, 2);
+    }
+
+    .premium {
+        color: rgb(24, 9, 3);
+        font-weight: bold;
+    }
+
+    .special {
+        color: rgb(15, 6, 3);
+        font-weight: bold;
+    }
+
+    /* Comparison Text */
+    .comparison-text {
+        background: linear-gradient(135deg, #f0f4f8 0%, #e8f1f7 100%);
+        padding: 25px;
+        border-radius: 8px;
+        border-left: 4px solid rgb(0, 0, 0);
+        font-size: 1.05em;
+        line-height: 1.8;
+    }
+
+    /* Brand Sections */
+    .brand-section {
+        border-left-color: rgb(9, 4, 2);
+    }
+
+    .oxford-section {
+        border-left-color: rgb(10, 4, 2);
+    }
+
+    .rovelab-section {
+        border-left-color: rgb(7, 3, 1);
+    }
+
+    .brand-intro {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 40px;
+        margin-bottom: 40px;
+        align-items: center;
+    }
+
+    .brand-image {
+        background: linear-gradient(135deg, rgb(7, 3, 1) 0%, rgb(22, 9, 4) 100%);
+        padding: 50px 30px;
+        border-radius: 12px;
+        color: white;
+        text-align: center;
+        min-height: 250px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.4em;
+        font-weight: bold;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .oxford-image {
+        background: linear-gradient(135deg, rgb(32, 30, 30) 0%, #020101 100%);
+    }
+
+    .brand-description {
+        font-size: 1.05em;
+        line-height: 1.8;
+        color: #34495e;
+    }
+
+    .brand-description p {
+        margin-bottom: 15px;
+    }
+
+    .brand-description-full {
+        font-size: 1.1em;
+        line-height: 1.9;
+        background: linear-gradient(135deg, #f5f7fa 0%, #e8f1f7 100%);
+        padding: 30px;
+        border-radius: 8px;
+        border-left: 4px solid rgb(0, 0, 0);
+        margin-bottom: 30px;
+    }
+
+    /* Products Grid */
+    .products-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+        margin-bottom: 40px;
+    }
+
+    .product-card {
+        background: white;
+        border: 2px solid #f0f0f0;
+        border-radius: 12px;
+        overflow: hidden;
+        transition: all 0.4s ease;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .product-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        border-color: rgb(10, 4, 2);
+    }
+
+    .oxford-product:hover .product-image {
+        background: linear-gradient(135deg, rgb(35, 32, 32) 0%, #050301 100%);
+    }
+
+    .rovelab-product:hover .product-image {
+        background: linear-gradient(135deg, rgb(29, 24, 22) 0%, #000000 100%);
+    }
+
+    .product-image {
+        background: linear-gradient(135deg, rgb(34, 27, 25) 0%, rgb(0, 0, 0) 100%);
+        height: 180px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        text-align: center;
+        padding: 20px;
+        transition: all 0.3s ease;
+        font-size: 1.1em;
+    }
+
+    .product-card h4 {
+        padding: 18px 15px 5px 15px;
+        color: rgb(7, 3, 1);
+        font-size: 1.1em;
+        margin: 0;
+    }
+
+    .product-card .description {
+        padding: 0 15px;
+        color: #7f8c8d;
+        font-size: 0.9em;
+        margin: 5px 0;
+    }
+
+    .product-card .price {
+        padding: 10px 15px 15px 15px;
+        color: rgb(17, 7, 4);
+        font-weight: bold;
+        font-size: 1.2em;
+        margin: 0;
+    }
+
+    /* Rating Table */
+    .rating-table {
+        margin-bottom: 30px;
+    }
+
+    .rating-table table {
+        width: 100%;
+    }
+
+    .rating-row td {
+        padding: 14px;
+        border-bottom: 2px solid #f0f0f0;
+    }
+
+    .rating-row td:first-child {
+        width: 65%;
+        font-weight: 500;
+    }
+
+    .rating-table td.rating {
+        color: rgb(12, 5, 2);
+        font-weight: bold;
+        font-size: 1.2em;
+        text-align: right;
+    }
+
+    .rating-table .overall-rating {
+        background: linear-gradient(135deg, #f5f7fa 0%, #e8f1f7 100%);
+        font-weight: bold;
+    }
+
+    /* Pros & Cons */
+    .pros-cons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        margin-bottom: 40px;
+    }
+
+    .pros,
+    .cons {
+        padding: 30px;
+        border-radius: 12px;
+        transition: all 0.3s ease;
+    }
+
+    .pros {
+        background: linear-gradient(135deg, #e8f5e9 0%, #f1f8f6 100%);
+        border-left: 5px solid rgb(17, 6, 2);
+    }
+
+    .pros:hover {
+        box-shadow: 0 8px 20px rgb(0, 0, 0);
+    }
+
+    .pros h3 {
+        color: rgb(10, 3, 1);
+    }
+
+    .cons {
+        background: linear-gradient(135deg, #ffebee 0%, #fff8f6 100%);
+        border-left: 5px solid rgb(7, 3, 1);
+    }
+
+    .cons:hover {
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.83);
+    }
+
+    .cons h3 {
+        color: rgb(0, 0, 0);
+    }
+
+    .pros ul,
+    .cons ul {
+        list-style-position: inside;
+    }
+
+    .pros li,
+    .cons li {
+        margin-bottom: 12px;
+        padding-left: 10px;
+        line-height: 1.6;
+    }
+
+    /* Detailed Review */
+    .detailed-review {
+        background: linear-gradient(135deg, #f5f7fa 0%, #e8f1f7 100%);
+        padding: 30px;
+        border-radius: 12px;
+        border-left: 4px solid rgb(5, 2, 1);
+    }
+
+    .detailed-review p {
+        margin-bottom: 18px;
+        line-height: 1.8;
+        color: #34495e;
+    }
+
+    .detailed-review p:last-child {
+        margin-bottom: 0;
+    }
+
+    /* Winner Section */
+    .winner-section {
+        background: linear-gradient(135deg, #fff9e6 0%, #fffbf0 100%);
+        border-left-color: rgb(0, 0, 0);
+    }
+
+    .winner-section h2 {
+        border-bottom-color: rgb(0, 0, 0);
+        color: rgb(2, 1, 0);
+    }
+
+    .winner-content {
+        text-align: center;
+    }
+
+    .winner-content>p {
+        font-size: 1.15em;
+        margin-bottom: 35px;
+        color: #34495e;
+    }
+
+    .winner-cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        margin-bottom: 40px;
+    }
+
+    .winner-card {
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        border-top: 5px solid rgb(0, 0, 0);
+    }
+
+    .oxford-winner {
+        border-top-color: rgb(0, 0, 0);
+    }
+
+    .rovelab-winner {
+        border-top-color: rgb(12, 6, 4);
+    }
+
+    .winner-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .winner-card h3 {
+        color: rgb(0, 0, 0);
+        margin-bottom: 20px;
+    }
+
+    .winner-card ul {
+        list-style-position: inside;
+        text-align: left;
+    }
+
+    .winner-card li {
+        margin-bottom: 12px;
+        padding-left: 10px;
+        line-height: 1.6;
+    }
+
+    .final-verdict {
+        background: linear-gradient(135deg, rgb(39, 38, 38) 0%, rgb(13, 4, 1) 100%);
+        color: white;
+        padding: 40px;
+        border-radius: 12px;
+        margin-top: 30px;
+    }
+
+    .final-verdict h3 {
+        color: #ffffff;
+        margin-bottom: 15px;
+        font-size: 1.5em;
+    }
+
+    .final-verdict p {
+        font-size: 1.1em;
+        line-height: 1.8;
+    }
+
+    /* Call to Action */
+    .cta-link,
+    .cta-button {
+        display: inline-block;
+        background: linear-gradient(135deg, rgb(14, 11, 10) 0%, rgb(0, 0, 0) 100%);
+        color: white;
+        padding: 14px 30px;
+        text-decoration: none;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        margin-top: 20px;
+        border: none;
+        cursor: pointer;
+        font-size: 1.05em;
+        font-weight: bold;
+        box-shadow: 0 4px 15px rgb(7, 2, 0);
+    }
+
+    .cta-link:hover,
+    .cta-button:hover {
+        background: linear-gradient(135deg, rgb(30, 27, 25) 0%, rgb(0, 0, 0) 100%);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgb(0, 0, 0)
+    }
+
+    footer {
+        background-color: #131313;
+    }
+
+    .foot-sec-1 {
+        display: flex;
+        justify-content: space-between;
+        /* padding: 30px 120px 30px 120px; */
+        flex-wrap: wrap;
+        background: linear-gradient(135deg, rgb(34, 28, 25) 0%, rgb(0, 0, 0) 100%);
+    }
+
+    .foot-logo img {
+        max-width: 100px;
+        width: 100%;
+        filter: invert(1);
+    }
+
+    .foot-con-2,
+    .foot-con-3,
+    .foot-con-5 {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .foot-con-2 h3,
+    .foot-con-3 h3,
+    .foot-con-5 h3 {
+        font-size: 13px;
+        color: #e6e6e6;
+        font-weight: 500;
+        padding-bottom: 16px;
+        letter-spacing: 0.06em;
+        width: fit-content;
+        margin-bottom: 40px;
+        position: relative;
+    }
+
+    .foot-con-2 a,
+    .foot-con-3 a,
+    .foot-con-5 a {
+        font-size: 11px;
+        color: #999999;
+        margin-bottom: 12px;
+    }
+
+    .foot-con-2 a:hover,
+    .foot-con-3 a:hover,
+    .foot-con-5 a:hover {
+        color: #ffffff;
+    }
+
+    .social-media {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .social-media img {
+        /* Filters ko simplified kar diya */
+        filter: invert(57%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(60%) contrast(90%);
+    }
+
+    .underline {
+        width: 100%;
+        height: 5px;
+        background: #767676;
+        border-radius: 3px;
+        position: absolute;
+        top: 25px;
+        left: 0;
+        overflow: hidden;
+    }
+
+    .underline span {
+        width: 15px;
+        height: 100%;
+        background: #fff;
+        border-radius: 3px;
+        position: absolute;
+        top: 0;
+        left: 10px;
+        animation: moving 2s linear infinite;
+    }
+
+    @keyframes moving {
+        0% {
+            left: -20px;
+        }
+
+        100% {
+            left: 100%;
+        }
+    }
+
+    .foot-sec-2 {
+        padding: 0px 90px 30px 90px;
+        padding-bottom: 0;
+        border-top: 1px solid #333;
+        /* Visual separation ke liye */
+    }
+
+    .foot-sec-2-con {
+        display: flex;
+        flex-direction: column;
+        font-size: 10px;
+        color: #545454;
+        gap: 6px;
+        padding-top: 20px;
+    }
+
+    .foot-sec-2-con-p3 {
+        margin-top: 10px;
+    }
+
+
+    /* Footer */
+    .footer {
+        background: linear-gradient(135deg, rgb(34, 28, 25) 0%, rgb(0, 0, 0) 100%);
+        color: white;
+        padding: 40px;
+        text-align: center;
+        margin-top: 60px;
+        box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .footer-content p {
+        margin-bottom: 12px;
+        font-size: 1.05em;
+    }
+
+    .footer-content a {
+        color: #f8f8f4;
+        text-decoration: none;
+        transition: color 0.3s ease;
+        font-weight: bold;
+    }
+
+    .footer-content a:hover {
+        color: #ffffff;
+        text-decoration: underline;
+    }
+
+    .brand-summary-content {
+        font-size: 1.05em;
+        line-height: 1.9;
+        color: #34495e;
+    }
+
+    .brand-summary-content p {
+        margin-bottom: 18px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .hero-content h1 {
+            font-size: 2.2em;
+        }
+
+        .hero-content p {
+            font-size: 1.05em;
+        }
+
+        .brand-intro {
+            grid-template-columns: 1fr;
+        }
+
+        .pros-cons {
+            grid-template-columns: 1fr;
+        }
+
+        .winner-cards {
+            grid-template-columns: 1fr;
+        }
+
+        .toc-list {
+            grid-template-columns: 1fr;
+        }
+
+        table {
+            font-size: 0.9em;
+        }
+
+        table th,
+        table td {
+            padding: 10px;
+        }
+
+        .section {
+            padding: 30px;
+        }
+
+        .menu-dropdown {
+            min-width: 250px;
+        }
+
+        .product-card h4 {
+            font-size: 1em;
+        }
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 25px;
+    }
+
+    .nav-links a {
+        color: #000000;
+        text-decoration: none;
+        font-weight: 600;
+        padding: 8px 15px;
+        transition: .3s;
+    }
+
+    .nav-links a:hover {
+        background: #fff;
+        color: #000;
+    }
+
+    /* ===== Product card image sizing - keeps cards consistent ===== */
+    .product-card {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .product-card img.product-img {
+        width: 100%;
+        /* take full card width */
+        height: 180px;
+        /* fixed visible image height matching .product-image */
+        object-fit: cover;
+        /* crop the image nicely without stretching */
+        display: block;
+        border-bottom: 1px solid #eee;
+    }
+
+    /* fallback for any images without .product-img class */
+    .product-card img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    /* ensure placeholder .product-image blocks match image size */
+    .product-image {
+        height: 180px;
+        /* same as image height */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    /* keep product content from growing the image area */
+    .product-card h4,
+    .product-card .description,
+    .product-card .price {
+        margin: 12px 15px;
+    }
+
+    /* fix product images for both sections */
+    .products-grid .product-card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        display: block;
+    }
+
+    /* Fix for Oxford section image only */
+    #oxford .brand-image img.sofa-image {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        display: block;
+        max-width: 100%;
+    }
+       /* Mobile devices */
+                    @media (max-width: 768px) {
+                        .mapouter {
+                            padding-bottom: 75%;
+                            /* thodi height mobile ke liye bari */
+                        }
+                    }
+
+                    @media (max-width: 480px) {
+                        .mapouter {
+                            padding-bottom: 90%;
+                            /* chhote phones ke liye aur bari height */
+                        }
+                    }
+</style>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="../oxforad sofa web/index.html"><img src="logo.png" alt="Oxford Logo"></a>
+            </div>
+            <div class="nav-links">
+                <a href="../oxforad sofa web/index.html">Home</a>
+                <a href="../Burrow-sofas/product.html">Products</a>
+                <a href="../comparison/camparison.html">Camparison</a>
+                <a href="../about/index.html">About</a>
+                <a href="../contact/index.html">Contact</a>
+            </div>
+            <div class="menu-button">
+                <button class="menu-toggle">☰ Menu</button>
+                <ul class="menu-dropdown">
+                    <li><a href="#table-of-contents">Table of Contents</a></li>
+                    <li><a href="#side-by-side">Side By Side</a></li>
+                    <li><a href="#oxford">BRAND #1: Oxford</a></li>
+                    <li><a href="#oxford-summary">Oxford | Brand Summary</a></li>
+                    <li><a href="#oxford-rating">Oxford | PotatoMeter Rating</a></li>
+                    <li><a href="#oxford-pros-cons">Oxford | Pros & Cons</a></li>
+                    <li><a href="#rovelab">BRAND #2: Rove Lab</a></li>
+                    <li><a href="#rovelab-summary">Rove Lab | Brand Summary</a></li>
+                    <li><a href="#rovelab-rating">Rove Lab | PotatoMeter Rating</a></li>
+                    <li><a href="#rovelab-pros-cons">Rove Lab | Pros & Cons</a></li>
+                    <li><a href="#winner">And the Winner is...</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" style="height: 700px;">
+        <div class="hero-content">
+            <h1>Oxford vs Rove Lab</h1>
+
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Table of Contents -->
+        <section id="table-of-contents" class="toc-section">
+            <h2 style="margin-bottom: 25px;">Table of Contents</h2>
+            <ul class="toc-list" style="margin-bottom: 30px;">
+                <li><a href="#side-by-side">Side By Side Comparison</a></li>
+                <li><a href="#oxford">BRAND #1: Oxford Sofas</a></li>
+                <li><a href="#oxford-summary">Oxford | Brand Summary</a></li>
+                <li><a href="#oxford-rating">Oxford | Quality Ratings</a></li>
+                <li><a href="#oxford-pros-cons">Oxford | Advantages & Disadvantages</a></li>
+                <li><a href="#rovelab">BRAND #2: Rove Lab</a></li>
+                <li><a href="#rovelab-summary">Rove Lab | Brand Summary</a></li>
+                <li><a href="#rovelab-rating">Rove Lab | Quality Ratings</a></li>
+                <li><a href="#rovelab-pros-cons">Rove Lab | Advantages & Disadvantages</a></li>
+                <li><a href="#winner">Final Verdict: Which Brand is Right for You?</a></li>
+            </ul>
+        </section>
+
+        <!-- Side By Side Section -->
+        <section id="side-by-side" class="section">
+            <h2>Side By Side Comparison</h2>
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Features</th>
+                            <th>Oxford</th>
+                            <th>Rove Lab</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Made to Order</strong></td>
+                            <td class="check">✓ Available</td>
+                            <td class="cross">Limited</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Free Shipping</strong></td>
+                            <td class="check">✓ Yes</td>
+                            <td class="check">✓ Yes</td>
+                        </tr>
+                        <tr>
+                            <td><strong>White Glove Delivery</strong></td>
+                            <td class="special">Premium Package</td>
+                            <td class="cross">-</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Return Policy</strong></td>
+                            <td class="check">✓ 30 Days</td>
+                            <td class="check">✓ 30 Days</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Warranty</strong></td>
+                            <td class="premium">5-10 Years</td>
+                            <td class="check">3 Years</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Financing Options</strong></td>
+                            <td class="check">Multiple</td>
+                            <td class="check">Shop Pay, Klarna</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Customization</strong></td>
+                            <td class="premium">Full Custom</td>
+                            <td class="check">Modular</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Material Quality</strong></td>
+                            <td class="premium">Premium Grade</td>
+                            <td class="check">Eco-Friendly</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Average 3-Seat Sofa Price</strong></td>
+                            <td class="premium">$$$</td>
+                            <td>$$-$$$</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Design Style</strong></td>
+                            <td class="premium">Timeless Elegance</td>
+                            <td class="check">Modern Innovation</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="comparison-text">
+                <p><strong>The Bottom Line:</strong> Oxford represents premium craftsmanship with extended warranties
+                    and full customization for those seeking investment-quality sofas. Rove Lab excels in modular design
+                    and sustainability, perfect for those who value innovation and flexibility. Choose Oxford for
+                    timeless elegance, choose Rove Lab for adaptable modern living.</p>
+            </div>
+        </section>
+
+        <!-- BRAND #1: Oxford -->
+        <section id="oxford" class="section brand-section oxford-section">
+            <h2>BRAND #1: Oxford Sofas</h2>
+            <div class="brand-intro">
+                <div class="brand-image oxford-image">
+                    <img src="./logo.png" alt="Oxford Premium Sofa" class="sofa-image">
+                </div>
+                <div class="brand-description">
+                    <p>Oxford stands as a beacon of luxury and tradition in the furniture world. With a legacy of
+                        excellence, Oxford creates sofas that transcend trends—pieces designed to become cherished
+                        family heirlooms. Each Oxford sofa combines superior materials, meticulous craftsmanship, and
+                        timeless design to deliver uncompromising quality.</p>
+                    <p><strong>Philosophy:</strong> "Build for generations, not seasons" - Oxford's commitment to
+                        durability and elegance makes their sofas a smart investment in your home's comfort and style.
+                    </p>
+                </div>
+            </div>
+
+            <h3>Best Selling Oxford Couches</h3>
+            <div class="products-grid">
+                <div class="product-card oxford-product">
+                    <a href="http://127.0.0.1:5500/OXFORD%20SOFA/Source%20Code/Burrow-sofas/detail.html?id=103"
+                        style="text-decoration: none;"> <img
+                            src="../Burrow-sofas/Burrow-Brand/Range-collection-imgs/sofa-3-imgs/sofa-3-img-1.webp"
+                            alt="Oxford Heritage Sofa" class="product-img">
+                        <h4>Oxford Heritage Premium Sofa</h4>
+                        <p class="description">Classic elegance with superior support</p>
+                        <p class="price">$2,499 - $3,299</p>
+
+                </div></a>
+                <!-- <div class="product-card oxford-product">
+                 
+                    <img src="/OXFORD SOFA/Source Code/Burrow-sofas/Burrow-Brand/NEW-RUSSET-COLLECTION/sofa-1/sofa-1-img-1.webp" alt="">
+                    <h4>Oxford Modern Sectional</h4>
+                    <p class="description">Contemporary luxury with modular options</p>
+                    <p class="price">$3,199 - $4,599</p>
+                </div> -->
+                <div class="product-card oxford-product">
+                    <a href="http://127.0.0.1:5500/OXFORD%20SOFA/Source%20Code/Burrow-sofas/detail.html?id=201"
+                        style="text-decoration: none;"> <img
+                            src="../Burrow-sofas/Burrow-Brand/NEW-RUSSET-COLLECTION/sofa-1/sofa-1-img-1.webp" alt="">
+                        <h4>Oxford Elite Chaise Sofa</h4>
+                        <p class="description">Ultimate comfort meets sophisticated design</p>
+                        <p class="price">$3,599 - $4,899</p>
+                </div></a>
+                <div class="product-card oxford-product">
+                    <a href="http://127.0.0.1:5500/OXFORD%20SOFA/Source%20Code/Burrow-sofas/detail.html?id=5"
+                        style="text-decoration: none;"> <img
+                            src="../Burrow-sofas/Burrow-Brand/Nomand-Collection-imgs/sofa-5/sofa-5-img-4.webp" alt="">
+                        <h4>Oxford Luxury Loveseat</h4>
+                        <p class="description">Perfect for intimate spaces with premium comfort</p>
+                        <p class="price">$1,899 - $2,699</p>
+                </div></a>
+            </div>
+        </section>
+
+        <!-- Oxford Brand Summary -->
+        <section id="oxford-summary" class="section">
+            <h2>Oxford | Brand Summary</h2>
+            <div class="brand-summary-content">
+                <p>Oxford epitomizes premium sofa excellence with an unwavering dedication to quality and longevity.
+                    Their website reflects the brand's sophistication—elegant, informative, and user-friendly. Oxford's
+                    strength lies in offering fully customizable sofas with premium material selections and extended
+                    warranties that demonstrate confidence in their craftsmanship.</p>
+                <p>What sets Oxford apart is their meticulous quality control process, superior customer service, and
+                    commitment to using only the finest materials. Each sofa is a masterpiece of engineering and
+                    artistry, designed to provide decades of comfort and style. Oxford doesn't follow trends—they set
+                    them.</p>
+            </div>
+        </section>
+
+        <!-- Oxford Quality Ratings -->
+        <section id="oxford-rating" class="section">
+            <h2>Oxford | Quality Ratings</h2>
+            <div class="rating-table">
+                <table>
+                    <tr class="rating-row">
+                        <td>Design & Aesthetics Score</td>
+                        <td class="rating">95%</td>
+                    </tr>
+                    <tr class="rating-row">
+                        <td>Durability & Build Quality Score</td>
+                        <td class="rating">96%</td>
+                    </tr>
+                    <tr class="rating-row">
+                        <td>Customer Service Score</td>
+                        <td class="rating">94%</td>
+                    </tr>
+                    <tr class="rating-row">
+                        <td>Material Quality Score</td>
+                        <td class="rating">97%</td>
+                    </tr>
+                    <tr class="rating-row">
+                        <td>Warranty & Support Score</td>
+                        <td class="rating">98%</td>
+                    </tr>
+                    <tr class="overall-rating">
+                        <td><strong>Overall Oxford Rating</strong></td>
+                        <td class="rating"><strong>96%</strong></td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+        <!-- Oxford Pros & Cons -->
+        <section id="oxford-pros-cons" class="section">
+            <h2>Oxford | Advantages & Disadvantages</h2>
+            <div class="pros-cons">
+                <div class="pros">
+                    <h3>✓ Advantages</h3>
+                    <ul>
+                        <li>Premium quality with exceptional craftsmanship</li>
+                        <li>Extended warranty (5-10 years)</li>
+                        <li>Full customization available</li>
+                        <li>Premium leather and fabric options</li>
+                        <li>Timeless, elegant designs</li>
+                        <li>Exceptional customer service</li>
+                        <li>Built to last generations</li>
+                    </ul>
+                </div>
+                <div class="cons">
+                    <h3>✗ Disadvantages</h3>
+                    <ul>
+                        <li>Premium price point</li>
+                        <li>Longer delivery lead times</li>
+                        <li>Limited brick-and-mortar locations</li>
+                        <li>Traditional design aesthetic (not for minimalists)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="detailed-review">
+                <h4>Detailed Analysis</h4>
+                <p>Oxford represents the pinnacle of sofa luxury. Their sofas feature premium materials selected for
+                    durability and comfort. Solid wood frames, high-density foam, and premium upholstery ensure your
+                    investment lasts for decades. Each sofa undergoes rigorous quality control before shipment.</p>
+
+                <p>While Oxford's pricing reflects their premium positioning, the long-term value is exceptional. You're
+                    not just purchasing a sofa—you're acquiring a family heirloom designed to become more comfortable
+                    with age. The extended warranty demonstrates Oxford's confidence in their craftsmanship.</p>
+
+                <p>Oxford's customization options are unparalleled, allowing you to select from premium fabric
+                    collections, leather options, leg styles, and configurations. This personalization ensures your sofa
+                    perfectly matches your home's aesthetic.</p>
+            </div>
+        </section>
+
+        <!-- BRAND #2: Rove Lab -->
+        <section id="rovelab" class="section brand-section rovelab-section">
+            <h2>BRAND #2: Rove Lab</h2>
+            <div class="brand-description-full">
+                <p><strong>Rove Lab:</strong> Where innovation meets sustainability. Rove Lab is the experimental
+                    division of Rove Concepts, pioneering modular sofa technology. Their mission is to revolutionize how
+                    we think about furniture—creating adaptable, sustainable, and innovative solutions for modern living
+                    spaces.</p>
+                <p>Built on SmartFoam engineering and eco-conscious production, Rove Lab sofas ship efficiently in
+                    compact, vacuum-sealed packaging. No tools required. Just unbox, inflate, and enjoy premium comfort
+                    with minimal environmental impact.</p>
+            </div>
+
+            <h3>Best Selling Rove Lab Couches</h3>
+            <div class="products-grid">
+                <div class="product-card rovelab-product">
+                    <a href="https://rovelab.com/products/m1-sofa-loveseat" style="text-decoration: none" ;> <img
+                            src="Helium_Cloud_960x_crop_center.webp" alt="">
+                        <h4>Rove Lab M1 Loveseat</h4>
+                        <p class="description">Modular vegan sofa with spill-proof weave</p>
+                        <p class="price">$1,097</p>
+                </div></a>
+                <div class="product-card rovelab-product">
+                    <a href="https://rovelab.com/products/r4-three-seater-sofa-better-than-clouds"
+                        style="text-decoration: none;"> <img src="photo-1555041469-a586c61ea9bc-removebg-preview.png"
+                            alt="">
+                        <h4>Rove Lab R4 Three Seater Sofa</h4>
+                        <p class="description">Low-profile modular innovation</p>
+                        <p class="price">$1,597</p>
+                </div></a>
+                <div class="product-card rovelab-product">
+                    <a href="https://rovelab.com/collections/modular-sofa/products/m1-sofa-three-seater"
+                        style="text-decoration: none;"> <img src="my.webp" alt="">
+                        <h4>Rove Lab M1 Three Seater</h4>
+                        <p class="description">Vegan sofa with SmartFoam technology</p>
+                        <p class="price">$1,397</p>
+                </div></a>
+            </div>
+        </section>
+
+        <!-- Rove Lab Brand Summary -->
+        <section id="rovelab-summary" class="section">
+            <h2>Rove Lab | Brand Summary</h2>
+            <div class="brand-summary-content">
+                <p>Rove Lab revolutionizes furniture design with their modular, all-foam sofa systems. No traditional
+                    frames, just engineered comfort with SmartFoam technology. Their approach to customization is
+                    unique—buy what you need, expand as your life evolves.</p>
+
+                <p>What makes Rove Lab special is their commitment to sustainability. Spill-resistant, eco-friendly
+                    fabrics, minimal packaging waste, and innovative design create an environmentally conscious luxury
+                    experience. For those who value cutting-edge design and sustainability, Rove Lab delivers.</p>
+            </div>
+        </section>
+
+        <!-- Rove Lab Quality Ratings -->
+        <section id="rovelab-rating" class="section">
+            <h2>Rove Lab | Quality Ratings</h2>
+            <div class="rating-table">
+                <table>
+                    <tr class="rating-row">
+                        <td>Innovation & Design Score</td>
+                        <td class="rating">94%</td>
+                    </tr>
+                    <tr class="rating-row">
+                        <td>Durability & Quality Score</td>
+                        <td class="rating">90%</td>
+                    </tr>
+                    <tr class="rating-row">
+                        <td>Shipping & Delivery Score</td>
+                        <td class="rating">93%</td>
+                    </tr>
+                    <tr class="rating-row">
+                        <td>Sustainability Score</td>
+                        <td class="rating">96%</td>
+                    </tr>
+                    <tr class="rating-row">
+                        <td>Customer Support Score</td>
+                        <td class="rating">90%</td>
+                    </tr>
+                    <tr class="overall-rating">
+                        <td><strong>Overall Rove Lab Rating</strong></td>
+                        <td class="rating"><strong>92%</strong></td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+        <!-- Rove Lab Pros & Cons -->
+        <section id="rovelab-pros-cons" class="section">
+            <h2>Rove Lab | Advantages & Disadvantages</h2>
+            <div class="pros-cons">
+                <div class="pros">
+                    <h3>✓ Advantages</h3>
+                    <ul>
+                        <li>Modular design for easy reconfiguration</li>
+                        <li>Eco-friendly and sustainable materials</li>
+                        <li>Spill-proof OEKO-TEX® performance fabric</li>
+                        <li>Quick setup (inflate in seconds, no tools)</li>
+                        <li>Efficient shipping in compact boxes</li>
+                        <li>Low-waste, eco-conscious packaging</li>
+                        <li>Innovative SmartFoam technology</li>
+                    </ul>
+                </div>
+                <div class="cons">
+                    <h3>✗ Disadvantages</h3>
+                    <ul>
+                        <li>No white-glove delivery service</li>
+                        <li>Covers not machine washable</li>
+                        <li>Limited customization options</li>
+                        <li>Lower seat height (not suitable for all)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="detailed-review">
+                <h4>Detailed Analysis</h4>
+                <p>Rove Lab's M1 collection represents a paradigm shift in sofa design. With modular flexibility,
+                    customers can expand or reconfigure their setup as needs evolve. The SmartFoam core provides
+                    structured support without traditional spring systems.</p>
+
+                <p>The spill-resistant fabric is perfect for active households with children or pets. Setup is
+                    refreshingly simple—no assembly required, just inflate and enjoy. The environmental commitment is
+                    genuine, from sustainable materials to minimal packaging.</p>
+
+                <p>Rove Lab appeals to design-forward consumers who value innovation and sustainability equally. If
+                    you're looking for a sofa that evolves with your life and your values, Rove Lab delivers a
+                    compelling alternative to traditional furniture.</p>
+            </div>
+        </section>
+
+        <!-- Winner Section -->
+        <section id="winner" class="section winner-section">
+            <h2>Final Verdict: Which Brand is Right for You?</h2>
+            <div class="winner-content">
+                <p>Both Oxford and Rove Lab are exceptional choices—but they serve different visions of luxury living.
+                </p>
+                <div class="winner-cards">
+                    <div class="winner-card oxford-winner">
+                        <h3>Choose Oxford If:</h3>
+                        <ul>
+                            <li>You value timeless, elegant design</li>
+                            <li>You want a sofa lasting 20+ years</li>
+                            <li>You seek premium materials and craftsmanship</li>
+                            <li>You prefer extended warranty protection</li>
+                            <li>You want full customization options</li>
+                            <li>You're making a long-term investment</li>
+                        </ul>
+                    </div>
+                    <div class="winner-card rovelab-winner">
+                        <h3>Choose Rove Lab If:</h3>
+                        <ul>
+                            <li>You want adaptable, modular furniture</li>
+                            <li>You prioritize sustainability</li>
+                            <li>You love innovative design</li>
+                            <li>You need spill-proof, easy-care fabrics</li>
+                            <li>You value quick, eco-friendly shipping</li>
+                            <li>You prefer flexibility over tradition</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="final-verdict">
+                    <h3>The Real Winner?</h3>
+                    <p><strong>You.</strong> Both brands excel in their respective categories. Oxford is for those who
+                        believe a sofa should be an investment piece—something to treasure for generations. Rove Lab is
+                        for those who embrace modern innovation and environmental responsibility. The choice depends on
+                        whether you prioritize timeless luxury or adaptive innovation.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+
+        <footer>
+            <div class="foot-sec-1">
+                <div class="foot-logo">
+                    <img src="logo.png" alt="">
+                </div>
+
+
+                <div class="foot-con-2">
+                    <h3>CONTACT <div class="underline"><span></span></div>
+                    </h3>
+                    <a href="tel:0331-2430122">T. 0331-2430122</a>
+                    <a href="mailto:oxford-sofa@.com">Email. oxford-sofa@gmail.com</a>
+                    <div class="social-media">
+                        <a href="https://www.facebook.com/"> <i class="fa-brands fa-facebook-f"></i></a>
+                        <a
+                            href="https://www.google.com/maps/search/north+Nazimabad+aptech/@24.9268785,67.0257372,16z?entry=ttu&g_ep=EgoyMDI1MTEyMy4xIKXMDSoASAFQAw%3D%3D">
+                            <i class="fa-solid fa-map-location"></i></a>
+                        <a href="https://x.com/"> <i class="fa-brands fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/"> <i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.whatsapp.com/?lang=en"> <i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <div class="foot-con-3">
+                    <h3>PRODUCTS <div class="underline"><span></span></div>
+                    </h3>
+                    <a href="../Burrow-sofas/product.html">Burrow</a>
+                    <a href="../Article-sofas/product.html">Article</a>
+                    <a href="../La-z-boy-sofas/product.html">La-Z-Boy</a>
+                    <a href="../joy-bird-sofa/product.html">Joy Bird</a>
+                    <!-- <a href="">Bed Room</a> -->
+                </div>
+
+                <!-- <div class="foot-con-4">
+        <h3>CLIENT SERVICE</h3>
+        <a href="">Contact</a>
+        <a href="">Location</a>
+      </div> -->
+
+                <div class="foot-con-5">
+                    <div class="mapouter">
+                        <iframe class="gmap_canvas"
+                            src="https://maps.google.com/maps?q=norths+nazimabad+aptech&t=k&z=13&ie=UTF8&iwloc=&output=embed"
+                            frameborder="0" scrolling="no" allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+<!-- 
+                <style>
+                    .foot-con-5 {
+                        max-width: 100%;
+                        width: 100%;
+                    }
+
+                    .mapouter {
+                        position: relative;
+                        width: 50%;
+                        height: 0;
+                        padding-bottom: 56.25%;
+                        padding-left: 300rem;
+                        /* 16:9 aspect ratio for desktop */
+                    }
+
+                    .gmap_canvas {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 230px;
+                        height: 230px;
+                        border: 0;
+                    } -->
+
+                 
+                </style>
+            </div>
+
+            <!-- <div class="foot-sec-2" >
+      <div class="foot-sec-2-con" style="text-align: center; font-size: 13px;">
+       <p class="foot-sec-2-con-p3">© 2019 Oxford Sofa. All rights reserved.</p>.</p>
+      </div> -->
+            </div>
+        </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="footer-content">
+            <p>&copy; 2024 Premium Sofa Comparison Guide. Designed for comfort enthusiasts.</p>
+            <p><a href="../oxforad sofa web/index.html">← Back to Home</a> | <a href="#table-of-contents">Back to Top
+                    ↑</a></p>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const menuDropdown = document.querySelector('.menu-dropdown');
+
+        menuToggle.addEventListener('click', function () {
+            menuDropdown.classList.toggle('active');
+        });
+
+        document.addEventListener('click', function (event) {
+            if (!event.target.closest('.menu-button')) {
+                menuDropdown.classList.remove('active');
+            }
+        });
+
+        const menuItems = document.querySelectorAll('.menu-dropdown li a');
+        menuItems.forEach(item => {
+            item.addEventListener('click', function () {
+                menuDropdown.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+
+</html>

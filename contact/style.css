@@ -1,0 +1,759 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Manrope", sans-serif;
+    background-color: #e6e6e6;
+    overflow-x: hidden;
+}
+
+.section-1 {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    height: 90px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 10px;
+    transition: 400ms;
+    background-color: #e6e6e6;
+}
+
+.section-1.active {
+    background-color: #e6e6e6 !important;
+}
+
+.section-1.active a {
+    color: #000000 !important;
+}
+
+.section-1.active img {
+    filter: invert(0) !important;
+}
+
+.section-1:hover {
+    background-color: #ffffff;
+}
+
+.section-1:hover a {
+    color: #000000 !important;
+}
+
+.section-1:hover img {
+    filter: invert(0) !important;
+}
+
+/* logo */
+.nav-container-1 img {
+    max-width: 120px;
+    width: 100%;
+    filter: invert(0);
+}
+
+/* center menu */
+.nav-ul-1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    list-style: none;
+}
+
+.nav-container-2 .menu ul li a {
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 900;
+    color: #111;
+    letter-spacing: 1px;
+}
+
+/* right menu */
+.right-menu ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    list-style: none;
+}
+
+.right-menu ul li a {
+    text-decoration: none;
+    color: #111;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.right-menu ul li a img {
+    max-width: 20px;
+    width: 100%;
+    filter: invert(0);
+}
+
+/* drop down menu css */
+.dropdown-menu {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    /* full width */
+    background: #ffffff;
+    display: flex;
+    justify-content: space-around;
+    padding: 40px 100px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.1s ease;
+    border-top: 1px solid #ddd;
+    z-index: 99;
+}
+
+/* show dropdown on hover */
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* section styling */
+.dropdown-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.dropdown-section h4 {
+    font-size: 14px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: #333;
+    letter-spacing: 1px;
+}
+
+.dropdown-section ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.dropdown-section ul li {
+    margin-bottom: 8px;
+}
+
+.dropdown-section ul li a {
+    text-decoration: none;
+    color: #111;
+    font-size: 14px;
+    text-align: left;
+    font-weight: 300;
+}
+
+.dropdown-section ul li a:hover {
+    opacity: 0.25;
+}
+
+/* ================= CONTACT PAGE PREMIUM DESIGN ================= */
+
+.contact {
+    width: 100%;
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.contact-container {
+    max-width: 1100px;
+    width: 100%;
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+/* LEFT FORM */
+.contact-left {
+    flex: 1;
+    min-width: 330px;
+    background: #ffffffd9;
+    padding: 35px;
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.contact-left h2 {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.cl-sub {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 25px;
+}
+
+.input-box {
+    margin-bottom: 20px;
+}
+
+.input-box label {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.input-box input,
+.input-box textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    outline: none;
+    transition: 0.3s;
+    background: #fafafa;
+}
+
+.input-box input:focus,
+.input-box textarea:focus {
+    border-color: #111;
+}
+
+/* submit button */
+.contact-btn {
+    width: 100%;
+    padding: 14px;
+    background: #131313;
+    color: white;
+    font-weight: 600;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.contact-btn:hover {
+    background: #000;
+}
+
+/* RIGHT INFO */
+/* NEW PREMIUM CONTACT INFO BOX */
+.contact-right {
+    flex: 1;
+    min-width: 280px;
+    background: #181818;
+    padding: 35px;
+    border-radius: 16px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-right h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #2a2a2a;
+    padding-bottom: 8px;
+}
+
+/* each box */
+.cr-box {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    background: #1f1f1f;
+    padding: 18px 20px;
+    border-radius: 12px;
+    border: 1px solid #2a2a2a;
+    transition: 0.3s;
+}
+
+.cr-box:hover {
+    background: #242424;
+    border-color: #3a3a3a;
+}
+
+/* icon */
+.cr-box i {
+    font-size: 22px;
+    color: #c4c2c2;
+}
+
+/* text inside box */
+.cr-text {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.cr-text a {
+    color: #ffffff;
+    font-size: 15px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.cr-text a:hover {
+    opacity: 0.7;
+}
+
+.cr-text span {
+    color: #888;
+    font-size: 12px;
+}
+
+
+/* responsive */
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+    }
+}
+
+/* --- FORM VALIDATION STYLES --- */
+.error-message {
+    color: #cc0000;
+    /* Laal rang error ke liye */
+    font-size: 11px;
+    font-weight: 500;
+    margin-top: 5px;
+    display: block;
+    /* Taa-ke poori width le */
+}
+
+/* Jab input mein error ho to border bhi laal kar dein */
+.input-box input.error,
+.input-box textarea.error {
+    border-color: #cc0000 !important;
+}
+
+
+/* footer */
+footer {
+  background-color: #131313;
+}
+
+.foot-sec-1 {
+  display: flex;
+  justify-content: space-between;
+  padding: 60px 120px 30px 120px;
+  flex-wrap: wrap;
+}
+
+.foot-logo img {
+  max-width: 100px;
+  width: 100%;
+  filter: invert(1);
+}
+
+.foot-con-2,
+.foot-con-3,
+.foot-con-5 {
+  display: flex;
+  flex-direction: column;
+}
+
+.foot-con-2 h3,
+.foot-con-3 h3,
+.foot-con-5 h3 {
+  font-size: 13px;
+  color: #e6e6e6;
+  font-weight: 500;
+  padding-bottom: 16px;
+  letter-spacing: 0.06em;
+      width: fit-content;
+    margin-bottom: 40px;
+    position:relative ;
+}
+
+.foot-con-2 a,
+.foot-con-3 a,
+.foot-con-5 a {
+  font-size: 11px;
+  color: #999999;
+  margin-bottom: 12px;
+}
+
+.foot-con-2 a:hover,
+.foot-con-3 a:hover,
+.foot-con-5 a:hover {
+  color: #ffffff;
+}
+
+.social-media {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.social-media img {
+  /* Filters ko simplified kar diya */
+  filter: invert(57%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(60%) contrast(90%);
+}
+.underline{
+    width: 100%;
+    height: 5px;
+    background: #767676;
+    border-radius: 3px;
+    position: absolute;
+    top: 25px;
+    left: 0;
+    overflow: hidden;
+}
+.underline span{
+    width: 15px;
+    height: 100%;
+    background: #fff;
+    border-radius: 3px;
+    position: absolute;
+    top: 0;
+    left: 10px;
+    animation: moving 2s linear infinite;
+}
+@keyframes moving{
+    0%{
+        left: -20px;
+    }
+    100%{
+        left: 100%;
+    }
+}
+
+.foot-sec-2 {
+  padding: 0px 90px 30px 90px;
+  padding-bottom: 0;
+  border-top: 1px solid #333;
+  /* Visual separation ke liye */
+}
+
+.foot-sec-2-con {
+  display: flex;
+  flex-direction: column;
+  font-size: 10px;
+  color: #545454;
+  gap: 6px;
+  padding-top: 20px;
+}
+
+.foot-sec-2-con-p3 {
+  margin-top: 10px;
+}
+
+@media screen and (min-width: 320px) and (max-width: 600px) {
+
+    .nav-ul-1 {
+        gap: 10px;
+    }
+
+    .right-menu ul li a img {
+        max-width: 12px;
+    }
+
+    .nav-container-1 img {
+        gap: 5px;
+    }
+
+    .right-menu ul {
+        gap: 5px;
+    }
+}
+
+
+@media screen and (min-width: 320px) and (max-width: 425px) {
+    .right-menu ul li a img {
+        max-width: 12px;
+    }
+
+    .nav-container-1 img {
+        max-width: 80px;
+    }
+
+    .right-menu ul {
+        gap: 5px;
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 375px) {
+    .right-menu ul li a img {
+        max-width: 12px;
+    }
+
+    .nav-container-1 img {
+        max-width: 50px;
+    }
+
+    .right-menu ul {
+        gap: 5px;
+    }
+
+}
+
+@media screen and (min-width: 320px) and (max-width: 320px) {
+    .right-menu ul li a img {
+        max-width: 12px;
+    }
+
+    .nav-container-1 img {
+        max-width: 50px;
+    }
+
+    .right-menu ul {
+        gap: 5px;
+    }
+
+}
+
+@media screen and (min-width: 320px) and (max-width: 320px) {
+
+    .dropdown-menu {
+        gap: 10px;
+        justify-content: center;
+    }
+
+}
+
+@media screen and (min-width: 320px) and (max-width: 768px) {
+
+    .dropdown-menu {
+        gap: 30px;
+        justify-content: center;
+    }
+
+}
+
+
+
+
+
+
+
+/* --- BURGER MENU STYLING --- */
+/* Burger Icon ki basic styling */
+.burger-icon {
+    display: none;
+    /* Default mein chhupa rahega */
+    flex-direction: column;
+    justify-content: space-around;
+    width: 25px;
+    height: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 100;
+    /* Sabse upar */
+}
+
+.burger-icon .line {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #000;
+    /* Icon ka default color */
+    border-radius: 10px;
+    transition: all 0.3s linear;
+    transform-origin: 1px;
+}
+
+/* Burger Icon active hone par X mein badalna */
+.burger-icon.active .line:nth-child(1) {
+    transform: rotate(45deg);
+    background: #000000;
+    /* Active hone par color */
+}
+
+.burger-icon.active .line:nth-child(2) {
+    opacity: 0;
+}
+
+.burger-icon.active .line:nth-child(3) {
+    transform: rotate(-45deg);
+    background: #000000;
+    /* Active hone par color */
+}
+
+
+/* --- MOBILE SPECIFIC STYLES (Jab screen choti ho) --- */
+@media (max-width: 768px) {
+
+    .burger-icon .line {
+        background: #000000 !important;
+    }
+
+    /* Burger Icon ko chote screen par dikhao */
+    .burger-icon {
+        display: flex;
+    }
+
+    /* nav-container-2 (Main Menu) ko mobile ke liye setup karna */
+    .nav-container-2 {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 70%;
+        /* Aap apne hisab se width change kar sakte hain */
+        background-color: #e6e6e6;
+        /* Aapki demand ke mutabiq background color */
+        padding-top: 90px;
+        transform: translateX(100%);
+        /* Right side se screen se bahar */
+        transition: transform 0.3s ease-in-out;
+        z-index: 90;
+        /* Icon se neeche */
+        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+        /* 👇 YEH DO LINES ZAROORI HAIN 👇 */
+        overflow-y: auto;
+        overflow-x: hidden;
+        /* 👆 YEH DO LINES ZAROORI HAIN 👆 */
+    }
+
+    /* Jab menu active ho to slide-in karo */
+    .nav-container-2.active {
+        transform: translateX(0);
+        /* Screen par wapas laao */
+    }
+
+    /* Menu items ko vertical (khada) dikhana */
+    .nav-ul-1 {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        padding-left: 20px;
+    }
+
+    /* Menu links ka color aur style */
+    .nav-container-2 .menu ul li a {
+        color: #000000;
+        /* Aapki demand ke mutabiq item color */
+        padding: 15px 0;
+        display: block;
+        width: 100%;
+        border-bottom: 1px solid #ddd;
+    }
+
+    /* Dropdown menu ko mobile view ke liye adjust karna */
+    .dropdown-menu {
+        position: static;
+        /* Fixed/Absolute se hata kar static kar denge */
+        width: 100%;
+        padding: 10px 20px;
+        background: #f0f0f0;
+        /* Thoda alag shade de sakte hain */
+        box-shadow: none;
+        border-top: none;
+
+        /* Dropdown ko initially chupa do aur JavaScript se dikhao */
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-in-out;
+    }
+
+    .dropdown-menu.active {
+        max-height: 1200px;
+        /* Ya isse zyada, taake saara content zaroor dikhe */
+        /* Pichle 500px ko 1200px se badal dein */
+
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    /* Zaroori: Mobile mein display flex hata kar block/column kar dein */
+    .dropdown-menu {
+        flex-direction: column;
+        /* Confirm karein yeh set ho */
+        align-items: center;
+        /* Agar zaroori ho */
+        display: flex;
+        /* Active/inactive state se pehle yahan display zaroori hai */
+    }
+
+    .dropdown-section {
+        width: 100%;
+        /* Sections ko poori jagah mil jaye */
+        text-align: center;
+        /* Content ko center karne ke liye */
+    }
+      
+}
+.foot-sec-1 {
+    gap: 20px;
+    padding: 40px 20px;
+    justify-content: space-between;
+  }
+
+  .foot-sec-2 {
+    padding: 0 20px 30px 20px;
+  }
+}
+
+/* 📱 Very Small Mobile (Max Width 425px) */
+@media (max-width: 425px) {
+
+  .nav-container-1 img {
+    max-width: 100px;
+  }
+
+  .main-container-1 h2 {
+    font-size: 20px;
+  }
+
+  .main-container-1 p {
+    font-size: 14px;
+  }
+
+  .main-container-2 a {
+    width: 150px;
+  }
+
+  .main-container-2 img {
+    max-width: 150px;
+    height: 150px;
+  }
+
+  .main-sec-3-sec-2 {
+    padding: 40px 15px 0 15px;
+  }
+
+  .main-s3-s2-s1 {
+    max-width: 100%;
+  }
+
+  .text-box h1 {
+    font-size: 22px;
+  }
+
+  .text-box a {
+    width: 160px;
+    padding: 10px 0;
+  }
+
+  .foot-sec-1 {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .foot-con-2,
+  .foot-con-3,
+  .foot-con-5 {
+    margin-top: 15px;
+  }
+       @media (max-width: 768px) {
+          .mapouter {
+            padding-bottom: 75%;
+            /* thodi height mobile ke liye bari */
+          }
+        }
+
+        @media (max-width: 480px) {
+          .mapouter {
+            padding-bottom: 90%;
+            /* chhote phones ke liye aur bari height */
+          }
+        }
+}

@@ -1,0 +1,119 @@
+// 1️⃣ Nomand Collection
+// Nomand Collection
+const sofas = [
+    { id: 1, title: "Ceni Walnut 3 - Pieace", price: "$1,199", image: "./Article-Brand/sofas/sofa-1/sofa-1-img-1.webp" },
+    { id: 2, title: "Tufted Valvet 2 - Pieace", price: "$1,299", image: "./Article-Brand/sofas/sofa-2/sofa-2-img-1.webp" },
+    { id: 3, title: "Brown Leather Sectional", price: "$1,399", image: "./Article-Brand/sofas/sofa-3/sofa-3-img-1.webp" },
+    { id: 4, title: "Marina Hastia Sectional", price: "$1,499", image: "./Article-Brand/sofas/sofa-4/sofa-4-img-1.webp" },
+    { id: 5, title: "Nordby Blue 2-Seater", price: "$1,599", image: "./Article-Brand/sofas/sofa-5/sofa-5-img-1.webp" },
+    { id: 6, title: "Lenae Eleos 3 - Seater", price: "$1,699", image: "./Article-Brand/sofas/sofa-6/sofa-6-img-1.webp" },
+    { id: 7, title: "Abisko Plush 2 - Seater", price: "$1,799", image: "./Article-Brand/sofas/sofa-7/sofa-7-img-1.webp" },
+    { id: 8, title: "Braam Vintage Sectional", price: "$1,899", image: "./Article-Brand/sofas/sofa-8/sofa-8-img-1.webp" }
+];
+
+// Range Collection
+const loveSeats = [
+    {
+        id: 101,
+        title: "Ceni Walnut 3 - Pieace",
+        price: "$1,299",
+        image: "./Article-brand/love-seats/love-seat-1/love-seat-1-img-1.webp"
+    },
+
+    {
+        id: 102,
+        title: "Honey Oak Base 2 - Seater",
+        price: "$1,499",
+        image: "./Article-brand/love-seats/love-seat-2/love-seat-2-img-1.webp"
+    },
+
+    {
+        id: 103,
+        title: "Anton Walnut 2 - Seater",
+        price: "$1,699",
+        image: "./Article-brand/love-seats/love-seat-3/love-seat-3-img-1.webp"
+    },
+
+    {
+        id: 104,
+        title: "LoveSeat 2 - Seater ",
+        price: "$1,899",
+        image: "./Article-brand/love-seats/love-seat-4/love-seat-4-img-1.webp"
+    },
+
+    
+];
+
+// Russet Collection
+const sectionals = [
+    {
+        id: 201,
+        title: "Jordie Leather 4 - Seater",
+        price: "$1,199",
+        image: "./Article-brand/sectionals/sectional-1/sectional-1-img-1.webp"
+    },
+
+    {
+        id: 202,
+        section: "Sectionals",
+        title: "Landry Napa 4 Seater",
+        price: "$1,299",
+        image: "./Article-brand/sectionals/sectional-2/sectional-2-img-1.webp"
+    },
+
+    {
+        id: 203,
+        section: "Sectionals",
+        title: "Brown Leather Sectional",
+        price: "$1,399",
+        image: "./Article-brand/sectionals/sectional-3/sectional-3-img-1.webp"
+    },
+
+    {
+        id: 204,
+        section: "Sectionals",
+        title: "Sanders 3 - Seater",
+        price: "$1,499",
+        image: "./Article-brand/sectionals/sectional-4/sectional-4-img-1.webp"
+    },
+
+    {
+        id: 205,
+        section: "Sectionals",
+        title: "Landry Napa Sectional",
+        price: "$1,599",
+        image: "./Article-brand/sectionals/sectional-5/sectional-5-img-1.webp"
+    },
+];
+
+// function to load product cards
+function loadProducts(list, containerId) {
+    const container = document.getElementById(containerId);
+
+    list.forEach(product => {
+        const div = document.createElement('div');
+        div.classList.add('product-card');
+
+        div.innerHTML = `
+            <div class="product-card-img">
+                <img src="${product.image}" alt="${product.title}">
+            </div>
+            <div class="product-card-info">
+                <h3>${product.title}</h3>
+                <p class="price">${product.price}</p>
+                <button class="view-btn">View Details</button>
+            </div>
+        `;
+
+        div.onclick = () => {
+            window.location.href = `detail.html?id=${product.id}`;
+        };
+
+        container.appendChild(div);
+    });
+}
+
+// load all 3 collections
+loadProducts(sofas, "nomandGrid");
+loadProducts(loveSeats, "rangeGrid");
+loadProducts(sectionals, "russetGrid");

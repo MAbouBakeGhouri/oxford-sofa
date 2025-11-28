@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Sofas</title>
+    <link rel="stylesheet" href="detail.css">
+</head>
+<style>
+        /* ⭐ NEW — Cart Badge */
+        .cart-btn {
+            position: relative;
+            display: inline-block;
+        }
+        .cart-badge {
+            position: absolute;
+            top: -6px;
+            right: -6px;
+            background: red;
+            color: white;
+            padding: 3px 7px;
+            font-size: 12px;
+            border-radius: 50%;
+            display: none;
+            font-weight: bold;
+        }
+
+        /* ⭐ NEW — Add btn green flash */
+        .added-success {
+            background: green !important;
+            color: white !important;
+            transition: 0.3s;
+        }
+
+        /* ⭐ NEW — Cart Modal */
+        #cart-modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #fff;
+            width: 380px;
+            padding: 25px;
+            border-radius: 10px;
+            display: none;
+            z-index: 9999;
+            box-shadow: 0 6px 25px rgba(0,0,0,0.25);
+        }
+        #cart-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.4);
+            display: none;
+            z-index: 9998;
+        }
+        .cart-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 12px 0;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        .cart-item img {
+            width: 55px;
+            height: 55px;
+            border-radius: 6px;
+            object-fit: cover;
+        }
+        .cart-info {
+            flex: 1;
+            margin-left: 10px;
+        }
+        .remove-item {
+            background: red;
+            color: white;
+            border: none;
+            padding: 6px 10px;
+            font-size: 12px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .clear-cart-btn {
+            background: red;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            margin-top: 10px;
+            cursor: pointer;
+            border-radius: 7px;
+        }
+        .close-cart-btn {
+            background: black;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            margin-top: 10px;
+            border-radius: 7px;
+            cursor: pointer;
+        }
+        *{margin:0;padding:0;box-sizing:border-box;font-family:Arial;}
+.modal{
+    display:none;position:fixed;inset:0;
+    background:rgba(0,0,0,.55);
+    backdrop-filter:blur(7px);
+    justify-content:center;align-items:center;
+}
+.modal-content{
+    width:350px;background:#fff;padding:30px;
+    border-radius:12px;box-shadow:0 0 20px rgba(0,0,0,.3);
+    animation:zoom .25s ease;
+}
+@keyframes zoom{from{transform:scale(.8);opacity:0;}to{transform:scale(1);opacity:1;}}
+
+.signin-tabs{
+    display:flex;border-bottom:1px solid #ddd;margin-bottom:20px;
+}
+.signin-tab{
+    flex:1;text-align:center;padding:10px;cursor:pointer;
+    font-weight:600;color:#444;
+}
+.signin-tab.active{
+    border-bottom:3px solid #000;color:#000;
+}
+.form-group{margin-bottom:15px;}
+input{
+    width:100%;padding:12px;border-radius:8px;
+    border:1px solid #ccc;outline:none;font-size:15px;
+}
+input:focus{border-color:black;}
+.btn{
+    width:100%;padding:12px;border-radius:8px;border:none;
+    background:#000;color:#fff;font-weight:600;cursor:pointer;
+    transition:0.3s;
+}
+.btn:hover{background:#333;}
+.google-btn{
+    width:100%;padding:12px;margin-top:10px;
+    border-radius:8px;border:1px solid #ddd;
+    background:white;cursor:pointer;font-weight:600;
+    display:flex;gap:10px;justify-content:center;align-items:center;
+}
+#forgot-btn{
+    font-size:14px;margin-top:10px;color:#0073ff;
+    cursor:pointer;text-align:right;display:block;
+}
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.55);
+    backdrop-filter:blur(7px);
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+
+.modal-content{
+    width:350px;
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    position:relative;
+}
+
+.signin-tabs{
+    display:flex;
+    border-bottom:1px solid #ddd;
+    margin-bottom:20px;
+}
+.signin-tab{
+    flex:1;
+    text-align:center;
+    padding:10px;
+    cursor:pointer;
+    font-weight:600;
+    color:#444;
+}
+.signin-tab.active{
+    border-bottom:3px solid #000;
+    color:#000;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    margin-bottom:15px;
+}
+
+.btn{
+    width:100%;
+    padding:12px;
+    background:black;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+</style>
+<body>
+
+    <!-- NavBar (same as product.html) -->
+    <div class="section-1">
+        <div class="nav-container-1">
+            <img src="../sofas/logo.png" alt="logo" />
+        </div>
+
+        <div class="nav-container-2" id="mobile-menu">
+            <div class="menu">
+                <ul class="nav-ul-1">
+                    <li><a href="../oxforad sofa web/index.html">HOME</a></li>
+                    <li class="dropdown">
+                        <a class="product-a" style="cursor: pointer;">PRODUCTS</a>
+                        <div class="dropdown-menu">
+                            <div class="dropdown-section">
+                                <h4>BURROW</h4>
+                                <ul>
+                                    <li><a href="../Burrow-sofas/product.html#section-1">Range Collection</a></li>
+                                    <li><a href="../Burrow-sofas/product.html#section-2">Nomad Collection</a></li>
+                                    <li><a href="../Burrow-sofas/product.html#section-3">NEW: RUSSET COLLECTION</a></li>
+                                    <!-- <li><a href="#">Field Collection</a></li>
+                                        <li><a href="#">Union Collection</a></li>
+                                        <li><a href="#">Ember Collection</a></li> -->
+                                </ul>
+                            </div>
+
+                            <div class="dropdown-section">
+                                <h4>ARTICLE</h4>
+                                <ul>
+                                    <li><a href="../Article-sofas/product.html#section-1">Sofas</a></li>
+                                    <!-- <li><a href="#">Sofa Beds</a></li> -->
+                                    <li><a href="../Article-sofas/product.html#section-2">Love Seats</a></li>
+                                    <li><a href="../Article-sofas/product.html#section-3">Sectionals</a></li>
+                                    <!-- <li><a href="#">Chaise Lounges</a></li> -->
+                                </ul>
+                            </div>
+
+                            <div class="dropdown-section">
+                                <h4>La-Z-Boy</h4>
+                                <ul>
+                                    <li><a href="./product.html#section-1">Reclining Sofas</a></li>
+                                    <li><a href="./product.html#section-2">Reclining Love Seats</a></li>
+                                    <li><a href="./product.html#section-3">Reclining Sectionals</a></li>
+                                    <!-- <li><a href="#">Stationary Love Seats</a></li>
+                                    <li><a href="#">Sleepers</a></li> -->
+                                </ul>
+                            </div>
+
+                            <div class="dropdown-section">
+                                <h4>Joybird</h4>
+                                <ul>
+                                    <li><a href="../joy-bird-sofa/product.html#section-1">Sofas</a></li>
+                                    <!-- <li><a href="#">Sleeper Sofas</a></li> -->
+                                    <li><a href="../joy-bird-sofa/product.html#section-2">Love Seats</a></li>
+                                    <li><a href="../joy-bird-sofa/product.html#section-3">Sectionals</a></li>
+                                    <!-- <li><a href="#">Grand Sofas</a></li> -->
+                                </ul>
+                            </div>
+
+                            <!-- <div class="dropdown-section">
+                                <h4>West Elm</h4>
+                                <ul>
+                                    <li><a href="#">Sofa & Sectional Collections</a></li>
+                                    <li><a href="#">Sectionals</a></li>
+                                    <li><a href="#">Sofas & Loveseats</a></li>
+                                    <li><a href="#">Sleeper Sofas & Sectionals</a></li>
+                                </ul>
+                            </div> -->
+                        </div>
+                    </li>
+                    <li><a href="../comparison/camparison.html">COMPARISON</a></li>
+                    <li><a href="../about/index.html">ABOUT</a></li>
+                    <li><a href="../contact/index.html">CONTACT</a></li>
+                </ul>
+            </div>
+        </div>
+
+           <div class="nav-container-3">
+            <div class="right-menu">
+                <ul>
+                    <li><a href="#" id="user-account" style=" font-size: 14px;">Login</a></li>
+
+                    <!-- ⭐ NEW — Badge Added Here -->
+                    <li>
+                      <a href="#" class="cart-btn">
+                        <img src="../oxforad sofa web/images/h-cart.png" alt="">
+                        <span id="cart-badge" class="cart-badge">0</span>
+                      </a>
+                    </li>
+
+                    <li><a href="#"><img src="../oxforad sofa web/images/h-global.png" alt=""></a></li>
+                </ul>
+            </div>
+        </div>
+
+            <button class="burger-icon" id="burger-toggle">
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line"></span>
+            </button>
+    </div>
+     <div class="modal" id="signin-modal">
+    <div class="modal-content">
+
+        <div class="signin-tabs">
+            <div class="signin-tab active" data-tab="signin">Sign In</div>
+            <div class="signin-tab" data-tab="register">Register</div>
+        </div>
+
+        <!-- LOGIN FORM -->
+        <form id="signin-form">
+            <div class="form-group">
+                <input type="email" id="email" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+                <input type="password" id="password" placeholder="Password" required>
+            </div>
+            <button class="btn" type="submit">Login</button>
+
+            <span id="forgot-btn">Forgot Password?</span>
+
+            <button type="button" class="google-btn" id="google-login">
+                <img width="18" src="https://www.google.com/favicon.ico">
+                Continue with Google
+            </button>
+        </form>
+
+        <!-- REGISTER FORM -->
+        <form id="register-form" style="display:none;">
+            <div class="form-group">
+                <input type="text" id="regName" placeholder="Full Name" required>
+            </div>
+
+            <div class="form-group">
+                <input type="email" id="regEmail" placeholder="Email" required>
+            </div>
+
+            <div class="form-group">
+                <input type="password" id="regPassword" placeholder="Password" required>
+            </div>
+
+            <button class="btn" type="submit">Register</button>
+
+            <button type="button" class="google-btn" id="google-login2">
+                <img width="18" src="https://www.google.com/favicon.ico">
+                Continue with Google
+            </button>
+        </form>
+
+    </div>
+</div>
+<!-- CART MODAL -->
+<div id="cart-overlay" class="cart-overlay"></div>
+
+<div id="cart-modal" class="cart-modal">
+  <h2>Your Cart</h2>
+
+  <div id="cart-items"></div>
+
+  <p id="empty-text" class="empty-text">Your cart is empty.</p>
+
+  <button id="clear-cart" class="clear-cart-btn">Clear All</button>
+  <button id="close-cart" class="close-cart-btn">Close</button>
+</div>
+    <div class="container">
+        <!-- Section title -->
+        <h2 id="sectionTitle" class="section-title"></h2>
+
+        <!-- Dynamic Product Display -->
+        <div class="product-page">
+
+            <!-- Image Gallery -->
+            <div class="gallery">
+                <div class="main-image-wrapper">
+                    <img id="mainImage" class="gallery-main" alt="Product Image">
+                </div>
+                <div class="gallery-thumbs" id="thumbs"></div>
+            </div>
+
+            <!-- Product Info -->
+            <div class="product-info">
+                <h1 id="productTitle" class="product-title"></h1>
+                <p id="productPrice" class="product-price"></p>
+                <p id="productDesc" class="product-desc"></p>
+
+                <!-- Specs Section -->
+                <div id="productSpecs" class="product-specs card"></div>
+
+                <!-- Optional Add to Cart Button -->
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 🔹 Related Products Section -->
+    <div class="container">
+        <h2 class="section-title">Related Products</h2>
+        <div class="related-products" id="relatedProducts"></div>
+    </div>
+
+
+    <!-- Footer (same as product.html) -->
+  <footer>
+    <div class="foot-sec-1">
+      <div class="foot-logo">
+        <img src="../oxforad sofa web/images/logo.png" alt="">
+      </div>
+
+
+      <div class="foot-con-2">
+        <h3>CONTACT  <div class="underline"><span></span></div></h3>
+        <a href="tel:0331-2430122">T. 0331-2430122</a>
+        <a href="mailto:oxford-sofa@.com">Email. oxford-sofa@gmail.com</a>
+        <div class="social-media">
+          <a href="https://www.facebook.com/">   <i class="fa-brands fa-facebook-f"></i></a>
+                 <a href="https://www.google.com/maps/search/north+Nazimabad+aptech/@24.9268785,67.0257372,16z?entry=ttu&g_ep=EgoyMDI1MTEyMy4xIKXMDSoASAFQAw%3D%3D">   <i class="fa-solid fa-map-location"></i></a>
+                    <a href="https://x.com/">   <i class="fa-brands fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/">   <i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.whatsapp.com/?lang=en">   <i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+
+      <div class="foot-con-3">
+        <h3>PRODUCTS <div class="underline"><span></span></div></h3>
+        <a href="../Burrow-sofas/product.html">Burrow</a>
+        <a href="../Article-sofas/product.html">Article</a>
+        <a href="../La-z-boy-sofas/product.html">La-Z-Boy</a>
+        <a href="../joy-bird-sofa/product.html">Joy Bird</a>
+        <!-- <a href="">Bed Room</a> -->
+      </div>
+
+      <!-- <div class="foot-con-4">
+        <h3>CLIENT SERVICE</h3>
+        <a href="">Contact</a>
+        <a href="">Location</a>
+      </div> -->
+
+      <div class="foot-con-5">
+                <div class="mapouter">
+                    <iframe class="gmap_canvas"
+                        src="https://maps.google.com/maps?q=norths+nazimabad+aptech&t=k&z=13&ie=UTF8&iwloc=&output=embed"
+                        frameborder="0" scrolling="no" allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+
+    </div>
+
+    <div class="foot-sec-2" >
+      <div class="foot-sec-2-con" style="text-align: center; font-size: 13px;">
+       <p class="foot-sec-2-con-p3">© 2019 Oxford Sofa. All rights reserved.</p>.</p>
+      </div>
+    </div>
+  </footer>
+
+    <script src="detail.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const burgerToggle = document.getElementById('burger-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const dropdownToggle = document.querySelector('.dropdown .product-a'); // PRODUCTS link
+            const dropdownMenu = document.querySelector('.dropdown-menu');
+
+            // 1. Burger Menu Toggle Functionality
+            burgerToggle.addEventListener('click', function () {
+                // Burger icon par 'active' class lagayega (X banane ke liye)
+                burgerToggle.classList.toggle('active');
+                // Mobile menu container par 'active' class lagayega (Slide-in/out ke liye)
+                mobileMenu.classList.toggle('active');
+
+                // 👇 NAYA CODE YAHAN ADD KAREN 👇
+                // Jab menu khule, to body scroll ko rok do
+                if (mobileMenu.classList.contains('active')) {
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    document.body.style.overflow = ''; // Ya 'auto'
+                }
+                // 👆 NAYA CODE YAHAN ADD KAREN 👆
+            });
+
+            // 2. Mobile Dropdown Toggle Functionality
+            // Yeh zaroori hai kyunki mobile mein hover kaam nahi karega
+            if (dropdownToggle && dropdownMenu) {
+                dropdownToggle.addEventListener('click', function (event) {
+                    // Dropdown link ko click karne par page reload hone se roken
+                    event.preventDefault();
+
+                    // Dropdown menu ko mobile mein toggle karna
+                    dropdownMenu.classList.toggle('active');
+                });
+            }
+
+            // Optional: Agar koi link click ho to menu band ho jaana chahiye
+            // Naya Logic: Menu ko band karne se pehle check karein
+            mobileMenu.querySelectorAll('a').forEach(link => {
+
+                // Sirf woh links jo 'product-a' class nahi rakhte, un par yeh function chalao.
+                // Yani, agar link PRODUCTS ka hai, toh menu band mat karo.
+                if (!link.classList.contains('product-a')) {
+                    link.addEventListener('click', function () {
+                        // PRODUCTS ke alawa koi aur link click hua hai, toh menu band kar do
+                        setTimeout(() => {
+                            burgerToggle.classList.remove('active');
+                            mobileMenu.classList.remove('active');
+
+                            // Dropdown ko bhi band karna behtar hai jab koi dusra link click ho
+                            const dropdownMenu = document.querySelector('.dropdown-menu');
+                            if (dropdownMenu) {
+                                dropdownMenu.classList.remove('active');
+                            }
+                        }, 50);
+                    });
+                }
+            });
+        });
+
+    </script>
+<script>
+let cart = [];
+
+const cartIcon = document.querySelector('.right-menu img[src="../oxforad sofa web/images/h-cart.png"]');
+const cartBadge = document.getElementById("cart-badge");
+const addBtn = document.querySelector(".add-to-cart");
+
+// Update Red Badge
+function updateBadge() {
+  if (cart.length === 0) {
+    cartBadge.style.display = "none";
+  } else {
+    cartBadge.style.display = "block";
+    cartBadge.textContent = cart.length;
+  }
+}
+
+addBtn.addEventListener("click", () => {
+  const name = document.getElementById("productTitle").textContent;
+  const price = document.getElementById("productPrice").textContent;
+  const img = document.getElementById("mainImage").src;
+
+  cart.push({ name, price, img });
+  updateBadge();
+
+  addBtn.classList.add("added-success");
+  addBtn.textContent = "Added to Carted";
+
+  setTimeout(() => {
+    addBtn.classList.remove("added-success");
+    addBtn.textContent = "Add to Cart";
+  }, 1000);
+});
+
+const cartModal = document.getElementById('cart-modal');
+const cartOverlay = document.getElementById('cart-overlay');
+const clearCart = document.getElementById('clear-cart');
+const closeCart = document.getElementById('close-cart');
+
+cartIcon.addEventListener("click", () => {
+  cartOverlay.style.display = "block";
+  cartModal.style.display = "block";
+  renderCart();
+});
+
+closeCart.addEventListener("click", () => {
+  cartOverlay.style.display = "none";
+  cartModal.style.display = "none";
+});
+
+clearCart.addEventListener("click", () => {
+  cart = [];
+  renderCart();
+});
+
+function removeItem(index) {
+  cart.splice(index, 1);
+  renderCart();
+}
+
+function renderCart() {
+  const cartItemsDiv = document.getElementById('cart-items');
+  const emptyText = document.getElementById('empty-text');
+
+  cartItemsDiv.innerHTML = "";
+
+  if (cart.length === 0) {
+    emptyText.style.display = "block";
+    clearCart.style.display = "none";
+    updateBadge();
+    return;
+  }
+
+  emptyText.style.display = "none";
+  clearCart.style.display = "inline-block";
+
+  cart.forEach((item, index) => {
+    cartItemsDiv.innerHTML += `
+      <div class="cart-item">
+        <img src="${item.img}">
+        <div class="cart-info">
+          <h4>${item.name}</h4>
+          <p>${item.price}</p>
+        </div>
+        <button class="remove-item" onclick="removeItem(${index})">X</button>
+      </div>
+    `;
+  });
+
+  updateBadge();
+}
+</script>
+<script>
+// =====================================
+// STORAGE / VARIABLES
+// =====================================
+let users = JSON.parse(localStorage.getItem("users")) || [];
+let currentUser = JSON.parse(localStorage.getItem("currentUser")) || null;
+
+if(currentUser){
+    document.getElementById("user-account").innerHTML = "Hi, " + currentUser.name;
+}
+
+// =====================================
+// SHOW LOGIN POPUP
+// =====================================
+document.getElementById("user-account").onclick = () =>{
+    if(currentUser){
+        if(confirm("Logout?")){
+            logout();
+        }
+    } else {
+        document.getElementById("signin-modal").style.display="flex";
+    }
+};
+
+window.onclick = e=>{
+    if(e.target.id === "signin-modal"){
+        e.target.style.display="none";
+    }
+};
+
+// =====================================
+// EMAIL VALIDATION
+// =====================================
+function validateEmail(email){
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+// =====================================
+// LOGIN (FIXED)
+// =====================================
+document.getElementById("signin-form").onsubmit = e => {
+    e.preventDefault();
+
+    let email = document.getElementById("email").value;
+    let pass = document.getElementById("password").value;
+
+    if(!validateEmail(email)){
+        alert("Invalid Email");
+        return;
+    }
+
+    let user = users.find(u => u.email === email);
+
+    if(!user){ alert("User not found"); return; }
+    if(user.password !== pass){ alert("Wrong Password"); return; }
+
+    currentUser = user;
+    localStorage.setItem("currentUser", JSON.stringify(user));
+
+    alert("Login Successful!");
+    updateUI();
+    closeModal();
+};
+
+// =====================================
+// REGISTER (FIXED)
+// =====================================
+document.getElementById("register-form").onsubmit = e => {
+    e.preventDefault();
+
+    let name = document.getElementById("regName").value;
+    let email = document.getElementById("regEmail").value;
+    let password = document.getElementById("regPassword").value;
+
+    if(!validateEmail(email)){
+        alert("Invalid Email");
+        return;
+    }
+
+    if(users.find(u => u.email === email)){
+        alert("Email already exists");
+        return;
+    }
+
+    let user = { name, email, password };
+
+    users.push(user);
+    localStorage.setItem("users", JSON.stringify(users));
+    localStorage.setItem("currentUser", JSON.stringify(user));
+    currentUser = user;
+
+    alert("Account Created!");
+    updateUI();
+    closeModal();
+};
+
+// =====================================
+// FORGOT PASSWORD
+// =====================================
+document.getElementById("forgot-btn").onclick = () =>{
+    let email = prompt("Enter your email:");
+    if(!validateEmail(email)){
+        alert("Invalid!");
+        return;
+    }
+
+    let user = users.find(u => u.email === email);
+    if(!user){ alert("Email not registered"); return; }
+
+    alert("Your Password is: " + user.password);
+};
+
+// =====================================
+// GOOGLE LOGIN BUTTONS
+// =====================================
+document.getElementById("google-login").onclick = () =>{
+    alert("Google Login API connecting ...");
+};
+document.getElementById("google-login2").onclick = () =>{
+    alert("Google Login API connecting ...");
+};
+
+// =====================================
+// TABS SWITCH
+// =====================================
+document.querySelectorAll(".signin-tab").forEach(tab =>{
+    tab.onclick = () =>{
+        document.querySelectorAll(".signin-tab").forEach(t => t.classList.remove("active"));
+        tab.classList.add("active");
+
+        if(tab.dataset.tab == "signin"){
+            document.getElementById("signin-form").style.display = "block";
+            document.getElementById("register-form").style.display = "none";
+        } else {
+            document.getElementById("signin-form").style.display = "none";
+            document.getElementById("register-form").style.display = "block";
+        }
+    }
+});
+
+// =====================================
+// HELPERS
+// =====================================
+function updateUI(){
+    document.getElementById("user-account").innerText = "Hi, " + currentUser.name;
+}
+
+function closeModal(){
+    document.getElementById("signin-modal").style.display="none";
+}
+
+function logout(){
+    currentUser = null;
+    localStorage.removeItem("currentUser");
+    document.getElementById("user-account").innerText = "Login";
+}
+</script>
+</body>
+
+</html>
